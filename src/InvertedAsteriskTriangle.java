@@ -7,11 +7,7 @@ public class InvertedAsteriskTriangle {
         for(int i = 0; i <= num; i++){
             System.out.println();
             for(int k = 0; k < i; k++){
-                if(k == 0){
-                    System.out.print(" ");
-                } else {
-                    System.out.print(" ");
-                }
+                System.out.print(" ");
             }
             for(int j = num; j > i; j--){
                 if(j == num){
