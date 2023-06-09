@@ -1,0 +1,2 @@
+SELECT COUNT(*) FROM city
+WHERE city LIKE 'R%r'
