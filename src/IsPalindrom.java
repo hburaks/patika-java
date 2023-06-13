@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class isPalindrom {
+public class IsPalindrom {
     static boolean isPalindrom(int number){
         int temp = number, reverseNumber = 0, lastNumber;
         while(temp != 0){
