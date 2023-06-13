@@ -17,7 +17,5 @@ public class RecursivePattern {
         }
         pattern(number -5);
         System.out.print(number + " ");
-
-
     }
 }
