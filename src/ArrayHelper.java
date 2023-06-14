@@ -75,14 +75,39 @@ public class ArrayHelper {
         Arrays.sort(arr);
         System.out.println("Sıralama : " + Arrays.toString(arr));
     }
+    public static void frequency(int[] arr) {
+        System.out.println("Tekrar Sayıları");
+        for(int i = 0; i < arr.length; i++){
+            int count = 1;
+            boolean repeated = false;
+            for (int j = 0; j < i; j++) {
+                if (arr[i] == arr[j]) {
+                    repeated = true;
+                    break;
+                }
+            }
+            if (repeated) {
+                continue;
+            }
+               for(int j = i +1; j < arr.length; j++){
+                   if(arr[i] == arr[j]){
+                       count++;
+                   }
+           }
+            System.out.println(arr[i] + " sayısı " + count + " kere tekrar edildi.");
+
+        }
+
+    }
     public static void main(String[] args) {
         int[] list = {14, 18, 23, 500, 15,15};
         System.out.println(ArrayHelper.average(list));
         System.out.println(ArrayHelper.minMax(list));
         printB();
-        int[] duplicates = ArrayHelper.isDuplicate(list);
-        System.out.println(Arrays.toString(duplicates));
-        orderUserArray();
+        // int[] duplicates = ArrayHelper.isDuplicate(list);
+        // System.out.println(Arrays.toString(duplicates));
+        // orderUserArray();
+        frequency(list);
     }
 
 }
