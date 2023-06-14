@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.Scanner;
+
 public class ArrayHelper {
     public static double average(int[] arr){
         double sum = 0.0;
@@ -61,6 +63,18 @@ public class ArrayHelper {
         System.arraycopy(duplicated, 0, result, 0, count);
         return result;
     }
+    public static void orderUserArray() {
+        Scanner inp = new Scanner(System.in);
+        System.out.print("Dizinin boyutu : ");
+        int length = inp.nextInt();
+        int[] arr = new int[length];
+        for(int i = 0; i < length; i++){
+            System.out.print((i+1) + ". Elemanı: ");
+            arr[i] = inp.nextInt();
+        }
+        Arrays.sort(arr);
+        System.out.println("Sıralama : " + Arrays.toString(arr));
+    }
     public static void main(String[] args) {
         int[] list = {14, 18, 23, 500, 15,15};
         System.out.println(ArrayHelper.average(list));
@@ -68,6 +82,7 @@ public class ArrayHelper {
         printB();
         int[] duplicates = ArrayHelper.isDuplicate(list);
         System.out.println(Arrays.toString(duplicates));
+        orderUserArray();
     }
 
 }
