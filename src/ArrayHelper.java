@@ -99,6 +99,47 @@ public class ArrayHelper {
         }
 
     }
+    public static void printMatrix(int[][] matrix) {
+        int rows = matrix.length;
+        int columns = matrix[0].length;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+    public static void matrisTranspose() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Matrisin satır sayısını girin: ");
+        int rows = scanner.nextInt();
+        System.out.print("Matrisin sütun sayısını girin: ");
+        int columns = scanner.nextInt();
+
+        int[][] matrix = new int[rows][columns];
+        int[][] transpose = new int[columns][rows];
+
+        System.out.println("Matrisin elemanlarını girin:");
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+        System.out.println("Matris:");
+        printMatrix(matrix);
+
+        for (int i = 0; i < columns; i++) {
+            for (int j = 0; j < rows; j++) {
+                transpose[i][j] = matrix[j][i];
+            }
+        }
+        System.out.println("Transpoze:");
+        printMatrix(transpose);
+        scanner.close();
+    }
     public static void main(String[] args) {
         int[] list = {14, 18, 23, 500, 15,15};
         System.out.println(ArrayHelper.average(list));
@@ -108,6 +149,7 @@ public class ArrayHelper {
         // System.out.println(Arrays.toString(duplicates));
         // orderUserArray();
         frequency(list);
+        matrisTranspose();
     }
 
 }
