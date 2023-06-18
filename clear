@@ -1,0 +1,408 @@
+[33mcommit 089fdb56b202b2dc1556b18c2bdc882e810aba77[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: H.Burak <123594944+hburaks@users.noreply.github.com>
+Date:   Sun Jun 18 08:17:17 2023 +0300
+
+    Add Boxing Game repo as a sub module
+
+[33mcommit 6eed0e2e1293100a6161448140c4bec6cdaa4158[m
+Author: H.Burak <123594944+hburaks@users.noreply.github.com>
+Date:   Sun Jun 18 07:58:25 2023 +0300
+
+    Refactor the directories
+
+[33mcommit f467ce4fe24ac26adc621b6536d68d31256e68de[m
+Author: H.Burak <123594944+hburaks@users.noreply.github.com>
+Date:   Sat Jun 17 21:51:22 2023 +0300
+
+    Create Dynamic Array and it's specified methods
+
+[33mcommit 3b2b4cc7bf2b10f3371215b5281060d92b5d7a10[m
+Author: H.Burak <123594944+hburaks@users.noreply.github.com>
+Date:   Thu Jun 15 21:29:31 2023 +0300
+
+    Create a MineSweeperGame table
+
+[33mcommit 3dd32d6dab0d29d2a8bd2c15f1bcfdab8aca4c4c[m
+Author: H.Burak <123594944+hburaks@users.noreply.github.com>
+Date:   Thu Jun 15 20:05:56 2023 +0300
+
+    Create is palindrome with a string method
+
+[33mcommit 47dcc873596dab333ec0316f80ec6315c65d571e[m
+Author: H.Burak <123594944+hburaks@users.noreply.github.com>
+Date:   Thu Jun 15 19:59:31 2023 +0300
+
+    Create GuessNumber game
+
+[33mcommit 2f42b524285c965c52520c6f7ca6d81a32f6d2e1[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Wed Jun 14 16:53:11 2023 +0300
+
+    Create matrisTranspose method
+
+[33mcommit e7bce1978cbeebc73680689b345d4e0651775cd7[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Wed Jun 14 16:19:40 2023 +0300
+
+    Create a frequency method
+
+[33mcommit 50b4b41fea00c750cd806923b4cdd3409d4b16f5[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Wed Jun 14 15:34:00 2023 +0300
+
+    Create a orderUserArray method
+
+[33mcommit c91d7dbeda6aafd71bd9403b18acbddc26c7390c[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Wed Jun 14 14:54:09 2023 +0300
+
+    Create isDuplicate method
+
+[33mcommit cd3193dbf843691019d9816072a3f09d9cade5b3[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Wed Jun 14 14:27:30 2023 +0300
+
+    Create printB method
+
+[33mcommit 8cbf04287e6d437ca057d832da5f15c09212ed58[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Wed Jun 14 14:19:10 2023 +0300
+
+    Create Max and Min method
+
+[33mcommit b52f69287e37acd3cb4d9b3681e8e62424549c05[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Wed Jun 14 14:12:13 2023 +0300
+
+    Create Array helper class with average method
+
+[33mcommit 332b05d14f8618c6d07a5ad58339304d6bc67296[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue Jun 13 18:36:57 2023 +0300
+
+    Create Employee Class project
+
+[33mcommit 0c653b89aeceeeefa2717f4f0e5302b826434a64[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue Jun 13 07:44:10 2023 +0300
+
+    Create Recursive Pattern project
+
+[33mcommit 0d40f6838abe8151b9179483393f805d84486389[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue Jun 13 07:12:30 2023 +0300
+
+    Create Recursive Prime Number project
+
+[33mcommit af542184640bd1446d4c8ca7fdfbf9e4056856d7[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue Jun 13 06:37:28 2023 +0300
+
+    Create Recursive Power project
+
+[33mcommit 02f9b873aee01589ebb6286b410aa3946c64b1f8[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue Jun 13 06:28:59 2023 +0300
+
+    Create Improved Calculator project
+
+[33mcommit ee1bf15f84197f9d4d1bf2567cce768c35ca081b[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue Jun 13 06:07:43 2023 +0300
+
+    Create Fibonacci with Recursive method
+
+[33mcommit bbfa1f924a89b4ef3463856e24787ff4b7d65763[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Mon Jun 12 21:03:04 2023 +0300
+
+    Create isPalindrom project
+
+[33mcommit d933d306cef5f8a4509091cebbbe179cc3a6fc98[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Mon Jun 12 07:07:01 2023 +0300
+
+    Create the 12 hw sql course for
+
+[33mcommit ea7180865d8b80cc0a69eb7b10449ef3870ec883[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Mon Jun 12 06:15:07 2023 +0300
+
+    Create the 11 hw sql course for
+
+[33mcommit 36860bac63b130dad3106d35cd7b0ed9468e1f80[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Mon Jun 12 06:00:45 2023 +0300
+
+    Create the 10 hw's last step for sql course for
+
+[33mcommit 65d53fcefdc473322d85d532b07c4763f6ecf60a[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Mon Jun 12 05:58:14 2023 +0300
+
+    Create the 10 hw for sql course
+
+[33mcommit 91c96e75e79253f0a8382e715e188717242604cf[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Sun Jun 11 17:12:55 2023 +0300
+
+    Create the 09 hw for sql course
+
+[33mcommit 1b7fd5160c4a1f29086536e7320cada73476c6d5[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Sat Jun 10 09:19:45 2023 +0300
+
+    Create the 08 hw for sql course
+
+[33mcommit 3d0cbc8e47770cc09c347b98b94ab59717a9705a[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Sat Jun 10 08:13:03 2023 +0300
+
+    Create the 07 hw for sql course
+
+[33mcommit ddf1fcffcfd6362f0a5fd33159cf15827b10881a[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Fri Jun 9 21:05:51 2023 +0300
+
+    Create the 06 hw for sql course
+
+[33mcommit c701ecdbb7b42c4bf3b49a0329ce3ba0608aa52f[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Fri Jun 9 17:51:17 2023 +0300
+
+    Create the 05 hw for sql course
+
+[33mcommit ffa8ef5e7db78e3bc3667b56f1e6faf21403faac[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Fri Jun 9 15:25:49 2023 +0300
+
+    Create the 04 hw for sql course
+
+[33mcommit 1218ae84fb867ff7d3e62cacdb7804ebb4896057[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Fri Jun 9 15:11:57 2023 +0300
+
+    Create the 03 hw for sql course
+
+[33mcommit 73577967dce677e3b0e2d1dfcc8347740acaf73e[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Fri Jun 9 14:36:54 2023 +0300
+
+    Create the 02 hw for sql course
+
+[33mcommit 16927b7ebfd84a4ea3ac594fae850779a7cf382d[m
+Author: Hasan Burak Songur <hasanburaksongur@gmail.com>
+Date:   Fri Jun 9 14:14:59 2023 +0300
+
+    Create the 01 hw for sql course
+
+[33mcommit ee80f7108324c993585a50130e100f75a970fd54[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Mon Jun 5 17:55:49 2023 +0300
+
+    Create fibonacci project
+
+[33mcommit f2cb86207be2400bf1f214b4fa254d0eb950e588[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Mon Jun 5 09:45:12 2023 +0300
+
+    Create prime number until 100 project
+
+[33mcommit 9142b0d4ce3e81164c38a1dbc677c686932616a4[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Mon Jun 5 09:06:42 2023 +0300
+
+    Refactor if statement for creating space
+
+[33mcommit 1fab46c8887531f82aa156aa3b37bb9c860ed4f4[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Mon Jun 5 09:02:10 2023 +0300
+
+    Create inverted asterisk triangle project
+
+[33mcommit 4290a8ee610f9bf38094d10c98082195c36116bf[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Sun Jun 4 08:19:02 2023 +0300
+
+    Create Perfect Number project
+
+[33mcommit 2e15b76f2d678f8a9d656dfe671acf2ea90a7b4e[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Sun Jun 4 08:10:53 2023 +0300
+
+    Create min and max numbers project
+
+[33mcommit 696a14284a3ecd973409e9d9afadb50155264dad[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Sun Jun 4 07:58:57 2023 +0300
+
+    Create LCM and HCF project
+
+[33mcommit fe326bf5c1bafe589635002db730c1d8b190a06d[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Sat Jun 3 16:36:10 2023 +0300
+
+    Create ATM project
+
+[33mcommit 94358fa3d9fe5552ac8979ef7fc550701f38dc02[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Sat Jun 3 16:13:43 2023 +0300
+
+    Create Asterisk Triangle project
+
+[33mcommit eee51fc7c5711c535b5af224ada3b036d284ed06[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Sat Jun 3 15:49:50 2023 +0300
+
+    Create Harmonic Sum project
+
+[33mcommit 3edb3f0856e6abeaa65a67c2d2ad31a794105a47[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Sat Jun 3 15:29:41 2023 +0300
+
+    Create Armstrong Number project
+
+[33mcommit c7c415eff1efa4f195417884611383933ab379e6[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Thu Jun 1 21:26:31 2023 +0300
+
+    Create power of number project
+
+[33mcommit 78f6a3771e771bae34dcceff091da5277e58a344[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Thu Jun 1 21:10:44 2023 +0300
+
+    Create factorial project
+
+[33mcommit e00a77b3e9cca7a16c2f31ac2af925a9c1435bd4[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue May 30 13:02:36 2023 +0300
+
+    Create powers of four and five project
+
+[33mcommit 9c07a7f6e29f684d3f73c34e44cbad9e26826a46[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue May 30 12:53:41 2023 +0300
+
+    Create sum of odd numbers project
+
+[33mcommit 03648159952a0429c52f7e86e08de92d91caf42c[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue May 30 12:50:27 2023 +0300
+
+    Create even number finder project
+
+[33mcommit d3e01b6e2791970b7424e1a1bd3c3d2a35111249[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Fri May 26 13:15:38 2023 +0300
+
+    Create leap year calculator project
+
+[33mcommit 9353053a6330703be6b287ed7e75dafa4c7eeece[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Fri May 26 13:11:21 2023 +0300
+
+    Create Chinese Zodiac calculator project
+
+[33mcommit bff24ebbafd93c97fe91ed7631978c27f3811a58[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Fri May 26 12:57:21 2023 +0300
+
+    Create Airplane Ticket project
+
+[33mcommit d90991e035000e978729b576d9f895c4bae1ba06[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Fri May 26 10:44:24 2023 +0300
+
+    Create Horoscope project
+
+[33mcommit e67e238ea1440153ee18f7484ba72a9ce0705bf2[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Wed May 24 15:53:08 2023 +0300
+
+    Create sorter project
+
+[33mcommit af13377c83e8d4d488330c176cc0fe191c2c01ce[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Wed May 24 09:16:25 2023 +0300
+
+    Create activity suggester project
+
+[33mcommit 75cb85c1247f604fe25f0b7a01aa82356e120241[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Wed May 24 00:04:23 2023 +0300
+
+    Create graduate situation project
+
+[33mcommit 955bb490403cafb1991db68b648c495cb27c854a[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue May 23 23:57:04 2023 +0300
+
+    Create login project
+
+[33mcommit 8db04ea55af1e381deab70d9b2d54a5f8142d8cf[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue May 23 23:47:05 2023 +0300
+
+    Create Calculator project
+
+[33mcommit 371d8f5d4cb5d7ca98ce05b403ec8ef5589b7000[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue May 23 16:52:33 2023 +0300
+
+    Create grocery project
+
+[33mcommit d9e4152e7daf6e8479e832cba2f202fe9298ee0e[m
+Merge: 5314416 36193c0
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue May 23 16:01:55 2023 +0300
+
+    Merge remote-tracking branch 'origin/main'
+
+[33mcommit 5314416c9b39f9aeeb510b9addb65c6435dbb4c1[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue May 23 15:58:39 2023 +0300
+
+    Create BMI calculator project
+
+[33mcommit 36193c04ca87e52507a4dfd539db32c1e62f262c[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue May 23 15:58:39 2023 +0300
+
+    Create circle measurement project
+
+[33mcommit 475ac2c37ea79ec56ac4dcf7c104a68a7d511971[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue May 23 13:49:08 2023 +0300
+
+    Create circle measurement project
+
+[33mcommit 3bf1e5e4f5f07e92bde0d3a3d6af1051bf591604[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue May 23 13:12:05 2023 +0300
+
+    Create taximeter project
+
+[33mcommit 6197877a004f7b967de60b84775b5c2b50466dca[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue May 23 11:26:17 2023 +0300
+
+    Create hypotenuse calculator project
+
+[33mcommit 8a2b91b2f166185fe02adc5c877a3e4105b3c707[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue May 23 11:14:00 2023 +0300
+
+    Create tax calculator project
+
+[33mcommit 2d843acb923f9707a05f337d390bb3c3e1e8d3fe[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue May 23 11:00:11 2023 +0300
+
+    Add algorithms and data structures projects
+
+[33mcommit e4b0e1c260671c194b3cb6f1a0730efe0dc6f724[m
+Author: hburaks <hasanburaksongur@gmail.com>
+Date:   Tue May 23 10:59:11 2023 +0300
+
+    Initial commit
