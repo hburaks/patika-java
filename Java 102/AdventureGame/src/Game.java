@@ -20,9 +20,13 @@ public class Game {
             switch (selectLoc){
                 case 1:
                     location = new SafeHouse(player);
+                    location.onLocation();
+                    break;
+                case 2:
+                    location = new ToolStore(player);
+                    location.onLocation();
                     break;
             }
-            System.out.println(location.getName());
         }
 
 

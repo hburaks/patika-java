@@ -5,7 +5,7 @@ public class Player {
     private int damage;
     private int health;
     private int money;
-
+    private Inventory inv;
     public int getOriginalHealth() {
         return originalHealth;
     }
@@ -89,5 +89,16 @@ public class Player {
         System.out.println("Para :  "+ this.getMoney());
         System.out.println("Oyun başlıyor. Başarılar!!");
     }
+    public Inventory getInv() {
+        return inv;
+    }
+
+    public void setInv(Inventory inv) {
+        this.inv = inv;
+    }
+    public int getTotalDamage() {
+        return this.getDamage() + this.getInv().getDamage();
+    }
+
 
 }
