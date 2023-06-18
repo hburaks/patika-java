@@ -1,0 +1,3 @@
+[submodule "patika-java-BoxingGame"]
+	path = patika-java-BoxingGame
+	url = git@github.com:hburaks/patika-java-BoxingGame.git
