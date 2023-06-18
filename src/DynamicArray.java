@@ -1,11 +1,13 @@
+import java.util.ArrayList;
+
 public class DynamicArray<T> {
-    private T[] array;
+    private ArrayList<T> array;
     private int size;
     private int capacity;
 
     public DynamicArray() {
         this.capacity = 10; // Başlangıçta 10 elemanlık bir kapasite belirleyebilirsiniz.
-        this.array = (T[]) new Object[capacity];
+        this.array = new ArrayList<>(capacity);
         this.size = 0;
     }
 
