@@ -1,5 +1,3 @@
-import java.util.Comparator;
-
 public class Book implements Comparable<Book> {
     private String name;
     private int totalPage;
@@ -24,7 +22,6 @@ public class Book implements Comparable<Book> {
         this.publishDate = publishDate;
     }
 
-    //GETTER SETTER
 
     public String getName() {
         return name;
