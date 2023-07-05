@@ -2,7 +2,7 @@ import java.util.*;
 
 public class School {
     public static void main(String[] args) {
-        HashSet<HashSet<String>> classRooms = new HashSet<>();
+        HashMap<HashSet<String> ,String> classRooms = new HashMap<>();
 
         HashSet<String> classroomA = new HashSet<>();
         classroomA.add("Hasan Burak Songur");
@@ -25,17 +25,17 @@ public class School {
         classroomC.add("Can Bayazit");
         classroomC.add("Aslıhan Hasar");
 
-        classRooms.add(classroomA);
-        classRooms.add(classroomB);
-        classRooms.add(classroomC);
+        classRooms.put(classroomA, "A");
+        classRooms.put(classroomB, "B");
+        classRooms.put(classroomC, "C");
 
 
-        for (HashSet<String> classroom : classRooms) {
+        for (HashSet<String> classroom : classRooms.keySet()) {
             for (String student : classroom) {
                 String[] nameList  = student.split(" ");
                 for(int i = 0 ; i < nameList.length -1; i++){
                     if (nameList[i].endsWith("an")) {
-                        System.out.println("İsmi 'an' ile biten öğrenci: " + student);
+                        System.out.println(classRooms.get(classroom) + " Sınıfından ismi 'an' ile biten öğrenci: " + student);
                     }
                 }
             }
