@@ -59,7 +59,10 @@ public class TestClass {
 
     }
 
-    public static void writeNumberOnWhileLoop( int num1, int num2){
+    public TestClass() {
+    }
+
+    public static void writeNumberOnWhileLoop(int num1, int num2){
         while(num2 > num1){
             System.out.println("num2 > num1");
             num2--;

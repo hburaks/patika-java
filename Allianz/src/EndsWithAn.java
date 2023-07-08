@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class School {
+public class EndsWithAn {
     public static void main(String[] args) {
         HashMap<HashSet<String> ,String> classRooms = new HashMap<>();
 
