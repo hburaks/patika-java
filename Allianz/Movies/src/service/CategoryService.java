@@ -14,6 +14,12 @@ public class CategoryService {
         Category scienceFiction = new Category("Bilim-Kurgu");
         Category drama = new Category("Dram");
 
+        categories.add(comedy);
+        categories.add(horror);
+        categories.add(adventure);
+        categories.add(scienceFiction);
+        categories.add(drama);
+
         return categories;
     }
 }
