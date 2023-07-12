@@ -1,7 +1,6 @@
 package service;
 
-import model.BankAccount;
-import model.DanceCourse;
+import model.*;
 
 import java.math.BigDecimal;
 
@@ -32,6 +31,16 @@ public class CourseService {
         danceCourse.addBankAccountToList(ziraat);
         danceCourse.addBankAccountToList(yapikredi);
 
+        Branch salsa = new Branch("Salsa");
+        Branch zumba = new Branch("Zumba");
+        Branch ballet = new Branch("Bale");
+
+        danceCourse.addBranchtToList(salsa);
+        danceCourse.addBranchtToList(zumba);
+        danceCourse.addBranchtToList(ballet);
+
+        Instructor instructor = new Instructor("Tan Sağtürk", 53, Sex.MALE, BigDecimal.valueOf(65000));
+        danceCourse.addInstructorToList(instructor);
         return danceCourse;
     }
 }

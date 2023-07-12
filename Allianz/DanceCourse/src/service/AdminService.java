@@ -40,7 +40,7 @@ public class AdminService {
             System.out.println("1 - Mali bilgi al");
             System.out.println("2 - Banka hesabı ekle");
             System.out.println("3 - Kurs bedeli al");
-            System.out.println("4 - Öğretmen maaşı öde");
+            System.out.println("4 - Eğitmen maaşı öde");
             System.out.println("0 - Üst menüye dön");
             System.out.print("Lütfen işlem yapmak istediğiniz kategoriyi belirtiniz: ");
             choice = inp.nextInt();
@@ -69,9 +69,9 @@ public class AdminService {
         while(running){
             System.out.println("Seçenekler:");
             System.out.println("1 - Kurs hakkında bilgi al");
-            System.out.println("2 - Yeni öğretmen ekle");
+            System.out.println("2 - Yeni eğitmen ekle");
             System.out.println("3 - Yeni öğrenci ekle");
-            System.out.println("4 - Öğretmene branş ekle");
+            System.out.println("4 - Branş oluştur");
             System.out.println("0 - Üst menüye dön");
             System.out.print("Lütfen işlem yapmak istediğiniz kategoriyi belirtiniz: ");
             int choice = inp.nextInt();
@@ -80,8 +80,28 @@ public class AdminService {
             } else if (choice == 1) {
                 System.out.println( danceCourse.toStringAdminEducation());
             } else if (choice == 2) {
+                danceCourse = InstructorService.createInstructor(danceCourse);
+                System.out.println("----------------- " +
+                        danceCourse
+                                .getInstructorList()
+                                .get(danceCourse.getInstructorList().size() -1)
+                                .getName() + " eğitmen listesine eklendi ----------------- ");
             } else if (choice == 3) {
-            }  else {
+                danceCourse = StudentService.createStudent(danceCourse);
+                System.out.println("----------------- " +
+                        danceCourse
+                                .getInstructorList()
+                                .get(danceCourse.getInstructorList().size() -1)
+                                .getName() + " öğrenci listesine eklendi ----------------- ");
+            } else if (choice == 4) {
+                danceCourse = BranchService.createBranch(danceCourse);
+                System.out.println("----------------- " +
+                        danceCourse
+                                .getBranchList()
+                                .get(danceCourse.getBranchList().size() -1)
+                                .getName() + " branşı listeye eklendi ----------------- ");
+
+            }else {
                 System.out.println("----------------- Lütfen belirtilen aralıkta bir seçim yapınız -----------------");
             }
         }

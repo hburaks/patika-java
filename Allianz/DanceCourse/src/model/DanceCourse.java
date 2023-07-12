@@ -17,11 +17,12 @@ public class DanceCourse {
 
     private List<BankAccount> bankAccountList = new ArrayList<>();
 
-    private List<PaymentMovement> paymentMovementList;
+    private List<PaymentMovement> paymentMovementList = new ArrayList<>();
 
-    private List<Instructor> instructorList;
+    private List<Instructor> instructorList = new ArrayList<>();
 
-    private List<Student> studentList;
+    private List<Student> studentList = new ArrayList<>();
+    private List<Branch> branchList = new ArrayList<>();
     public String getName() {
         return name;
     }
@@ -87,6 +88,9 @@ public class DanceCourse {
         this.instructorList = instructorList;
     }
 
+    public void addInstructorToList(Instructor instructor){ this.instructorList.add(instructor);}
+
+
     public List<Student> getStudentList() {
         return studentList;
     }
@@ -94,6 +98,17 @@ public class DanceCourse {
     public void setStudentList(List<Student> studentList) {
         this.studentList = studentList;
     }
+
+    public List<Branch> getBranchList() {
+        return branchList;
+    }
+
+    public void setBranchList(List<Branch> branchList) {
+        this.branchList = branchList;
+    }
+    public void addBranchtToList(Branch branch){ this.branchList.add(branch);}
+
+
     @Override
     public String toString() {
         return "Kurs {" + '\n' +
@@ -102,6 +117,7 @@ public class DanceCourse {
                 "Kurucu= " + founder + '\n' +
                 "Banka Hesapları= " + bankAccountList + '\n' +
                 "Eğitmen Listesi= " + instructorList + '\n' +
+                "Branş Listesi= " + branchList + '\n' +
                 '}';
     }
 
@@ -113,6 +129,7 @@ public class DanceCourse {
                 "Kurucu= " + founder + "\n" +
                 "Eğitmen Listesi= " + instructorList + "\n" +
                 "Öğrenci Listesi= " + studentList + "\n" +
+                "Branş Listesi= " + branchList + '\n' +
                 '}';
     }
 

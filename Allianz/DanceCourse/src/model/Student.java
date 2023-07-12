@@ -18,6 +18,14 @@ public class Student {
 
     private Date endDate;
 
+    public Student(String name, int age, Sex sex, BigDecimal contractAmount) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.contractAmount = contractAmount;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
 
     public String getName() {
         return name;

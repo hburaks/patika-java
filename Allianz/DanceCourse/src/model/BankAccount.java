@@ -50,10 +50,9 @@ public class BankAccount {
     @Override
     public String toString() {
         return  "\n" +
-                "Banka İsmi='" + bankName + '\'' +
-                ", IBAN ='" + ibanNo + '\'' +
-                ", Şirket İsmi='" + companyName + '\'' +
-                ", Bakiye=" + amount +
-                "\n";
+                "Banka İsmi= " + bankName +
+                ", IBAN= " + ibanNo +
+                ", Şirket İsmi= " + companyName +
+                ", Bakiye= " + amount;
     }
 }

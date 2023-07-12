@@ -1,12 +1,13 @@
 package model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Instructor {
 
     private String name;
-    private List<Branch> branchList;
+    private List<Branch> branchList = new ArrayList<>();
 
     private int age;
 
@@ -14,6 +15,12 @@ public class Instructor {
 
     private BigDecimal salary;
 
+    public Instructor(String name, int age, Sex sex, BigDecimal salary) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.salary = salary;
+    }
 
     public String getName() {
         return name;
@@ -30,6 +37,8 @@ public class Instructor {
     public void setBranchList(List<Branch> branchList) {
         this.branchList = branchList;
     }
+    public void addBranchtToList(Branch branch){ this.branchList.add(branch);}
+
 
     public int getAge() {
         return age;
@@ -53,5 +62,15 @@ public class Instructor {
 
     public void setSalary(BigDecimal salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return  "\n" +
+                "Eğitmen İsmi= " + name +
+                ",Branş Listesi= " + branchList +
+                ", Yaş= " + age +
+                ", Cinsiyet= " + sex +
+                ", Maaş= " + salary;
     }
 }
