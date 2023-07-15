@@ -1,5 +1,6 @@
 package model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,14 +16,18 @@ public class DanceCourse {
 
     private String taxOffice;
 
-    private List<BankAccount> bankAccountList = new ArrayList<>();
+    private List<BankAccount> bankAccountList;
 
-    private List<PaymentMovement> paymentMovementList = new ArrayList<>();
+    private BigDecimal totalAmount;
 
-    private List<Instructor> instructorList = new ArrayList<>();
+    private List<PaymentMovement> paymentMovementList;
 
-    private List<Student> studentList = new ArrayList<>();
-    private List<Branch> branchList = new ArrayList<>();
+    private List<Instructor> instructorList;
+
+    private List<Student> studentList;
+    private List<Branch> branchList;
+    private List<Lecture> lectureList;
+    private int capacity = 20;
     public String getName() {
         return name;
     }
@@ -70,9 +75,11 @@ public class DanceCourse {
     public void setBankAccountList(List<BankAccount> bankAccountList) {
         this.bankAccountList = bankAccountList;
     }
-    public void addBankAccountToList(BankAccount bankAccount){ this.bankAccountList.add(bankAccount);}
 
     public List<PaymentMovement> getPaymentMovementList() {
+        if(paymentMovementList == null){
+            paymentMovementList = new ArrayList<>();
+        }
         return paymentMovementList;
     }
 
@@ -88,7 +95,6 @@ public class DanceCourse {
         this.instructorList = instructorList;
     }
 
-    public void addInstructorToList(Instructor instructor){ this.instructorList.add(instructor);}
 
 
     public List<Student> getStudentList() {
@@ -106,42 +112,65 @@ public class DanceCourse {
     public void setBranchList(List<Branch> branchList) {
         this.branchList = branchList;
     }
-    public void addBranchtToList(Branch branch){ this.branchList.add(branch);}
 
+    public List<Lecture> getLectureList() {
+        return lectureList;
+    }
+
+    public void setLectureList(List<Lecture> lectureList) {
+        this.lectureList = lectureList;
+    }
+
+    public BigDecimal getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(BigDecimal totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
 
     @Override
     public String toString() {
-        return "Kurs {" + '\n' +
-                "İsim= " + name + '\n' +
-                "Adres= " + address + '\n' +
-                "Kurucu= " + founder + '\n' +
+        return "Course {" + '\n' +
+                "Name= " + name + '\n' +
+                "Adress= " + address + '\n' +
+                "Founder= " + founder + '\n' +
                 "Banka Hesapları= " + bankAccountList + '\n' +
                 "Eğitmen Listesi= " + instructorList + '\n' +
-                "Branş Listesi= " + branchList + '\n' +
+                "Branch List= " + branchList + '\n' +
                 '}';
     }
 
 
     public String toStringAdminEducation() {
         return "Kurs {" + "\n" +
-                "İsim= " + name + "\n" +
-                "Adres= " + address + "\n" +
-                "Kurucu= " + founder + "\n" +
-                "Eğitmen Listesi= " + instructorList + "\n" +
-                "Öğrenci Listesi= " + studentList + "\n" +
-                "Branş Listesi= " + branchList + '\n' +
+                "Name= " + name + "\n" +
+                "Adress= " + address + "\n" +
+                "Founder= " + founder + "\n" +
+                "Instructor List= " + instructorList + "\n" +
+                "Student List= " + studentList + "\n" +
+                "Branch List= " + branchList + '\n' +
                 '}';
     }
 
     public String toStringAdminFinancial() {
         return "Kurs {" + '\n' +
-                "İsim= " + name + '\n' +
-                "Vergi No= " + taxNumber + '\n' +
-                "Vergi Dairesi= " + taxOffice + '\n' +
-                "Banka Hesapları= " + bankAccountList + '\n' +
-                "Banka Hareketleri= " + paymentMovementList + '\n' +
-                "Eğitmen Listesi= " + instructorList + '\n' +
-                "Öğrenci Listesi= " + studentList + '\n' +
+                "Name= " + name + '\n' +
+                "Tax No= " + taxNumber + '\n' +
+                "Tax Office= " + taxOffice + '\n' +
+                "Bank Accounts= " + bankAccountList + '\n' +
+                "Total Amount= " + totalAmount + '\n' +
+                "Payment Movements= " + paymentMovementList + '\n' +
+                "Instructor List= " + instructorList + '\n' +
+                "Student List= " + studentList + '\n' +
                 '}';
     }
 }

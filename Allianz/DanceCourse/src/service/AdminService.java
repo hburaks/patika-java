@@ -1,23 +1,21 @@
 package service;
 
-import model.BankAccount;
 import model.DanceCourse;
-import model.Day;
 
-import java.math.BigDecimal;
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class AdminService {
     public static DanceCourse start(DanceCourse danceCourse) {
-        System.out.println("------------------- Yönetici olarak devam ediyorsunuz --------------------------");
+        System.out.println("------------------- Continue as admin --------------------------");
         Scanner inp = new Scanner(System.in);
         boolean running = true;
         while(running){
-            System.out.println("Seçenekler:");
-            System.out.println("1 - Mali İşler");
-            System.out.println("2 - Eğitim");
-            System.out.println("0 - Üst menüye dön");
-            System.out.print("Lütfen işlem yapmak istediğiniz kategoriyi belirtiniz: ");
+            System.out.println("Options:");
+            System.out.println("1 - Financial Affairs");
+            System.out.println("2 - Education");
+            System.out.println("0 - Back to the top menu");
+            System.out.print("Please select the option: ");
             int choice = inp.nextInt();
             if (choice == 1) {
                 danceCourse = financialAffairsOption(danceCourse);
@@ -26,7 +24,7 @@ public class AdminService {
             }   else if (choice == 0) {
                 running = false;
             }   else {
-                System.out.println("--------------------- Lütfen belirtilen aralıkta bir seçim yapınız ---------------------");
+                System.out.println("--------------------- Please select from the options  ---------------------");
             }
         }
         return danceCourse;
@@ -36,44 +34,46 @@ public class AdminService {
         boolean running = true;
         int choice;
         while(running){
-            System.out.println("Seçenekler:");
-            System.out.println("1 - Mali bilgi al");
-            System.out.println("2 - Banka hesabı ekle");
-            System.out.println("3 - Kurs bedeli al");
-            System.out.println("4 - Eğitmen maaşı öde");
-            System.out.println("0 - Üst menüye dön");
-            System.out.print("Lütfen işlem yapmak istediğiniz kategoriyi belirtiniz: ");
+            System.out.println("Options:");
+            System.out.println("1 - Get financial information");
+            System.out.println("2 - Add bank account");
+            System.out.println("3 - Get course payment");
+            System.out.println("4 - Payment movements");
+            System.out.println("0 - Back to the top menu");
+            System.out.print("Please select the category: ");
             choice = inp.nextInt();
             if(choice == 0){
                 running = false;
             } else if (choice == 1) {
                 System.out.println(danceCourse.toStringAdminFinancial());
             } else if (choice == 2) {
-                danceCourse = FinancialService.createNewBankAccount(danceCourse);
-                System.out.println("----------------- " +
+                danceCourse = BankAccountService.createNewBankAccount(danceCourse);
+                System.out.println("----------------- Account in " +
                         danceCourse
                         .getBankAccountList()
                         .get(danceCourse.getBankAccountList().size() -1)
-                                .getBankName() + " bankasındaki hesabınız listeye eklendi ----------------- ");
+                                .getBankName() + " bank, added to list ----------------- ");
             } else if (choice == 3) {
+                danceCourse = StudentService.getStudentPayment(danceCourse);
             } else if (choice == 4) {
+                System.out.println(danceCourse.getPaymentMovementList().toString());
             }  else {
-                System.out.println("----------------- Lütfen belirtilen aralıkta bir seçim yapınız -----------------");
+                System.out.println("----------------- Please select from the options -----------------");
             }
         }
         return danceCourse;
     }
-    public static DanceCourse educationOption(DanceCourse danceCourse){
+    public static DanceCourse educationOption(DanceCourse danceCourse) {
         Scanner inp = new Scanner(System.in);
         boolean running = true;
         while(running){
-            System.out.println("Seçenekler:");
-            System.out.println("1 - Kurs hakkında bilgi al");
-            System.out.println("2 - Yeni eğitmen ekle");
-            System.out.println("3 - Yeni öğrenci ekle");
-            System.out.println("4 - Branş oluştur");
-            System.out.println("0 - Üst menüye dön");
-            System.out.print("Lütfen işlem yapmak istediğiniz kategoriyi belirtiniz: ");
+            System.out.println("Options:");
+            System.out.println("1 - Get info about the course");
+            System.out.println("2 - Add new instructor");
+            System.out.println("3 - Add new student");
+            System.out.println("4 - Create branch");
+            System.out.println("0 - Back to the top menu");
+            System.out.print("Please select the action: ");
             int choice = inp.nextInt();
             if(choice == 0){
                 running = false;
@@ -85,24 +85,24 @@ public class AdminService {
                         danceCourse
                                 .getInstructorList()
                                 .get(danceCourse.getInstructorList().size() -1)
-                                .getName() + " eğitmen listesine eklendi ----------------- ");
+                                .getName() + " added to instructor list ----------------- ");
             } else if (choice == 3) {
                 danceCourse = StudentService.createStudent(danceCourse);
                 System.out.println("----------------- " +
                         danceCourse
-                                .getInstructorList()
+                                .getStudentList()
                                 .get(danceCourse.getInstructorList().size() -1)
-                                .getName() + " öğrenci listesine eklendi ----------------- ");
+                                .getName() + " added to student list ----------------- ");
             } else if (choice == 4) {
                 danceCourse = BranchService.createBranch(danceCourse);
                 System.out.println("----------------- " +
                         danceCourse
                                 .getBranchList()
                                 .get(danceCourse.getBranchList().size() -1)
-                                .getName() + " branşı listeye eklendi ----------------- ");
+                                .getName() + " added to branch list ----------------- ");
 
             }else {
-                System.out.println("----------------- Lütfen belirtilen aralıkta bir seçim yapınız -----------------");
+                System.out.println("----------------- Please select from the options -----------------");
             }
         }
         return danceCourse;

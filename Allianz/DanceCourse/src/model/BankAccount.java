@@ -14,6 +14,8 @@ public class BankAccount {
         this.companyName = companyName;
         this.amount = amount;
     }
+    public BankAccount() {
+    }
 
     public String getBankName() {
         return bankName;

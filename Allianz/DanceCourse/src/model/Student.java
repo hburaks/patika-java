@@ -17,7 +17,8 @@ public class Student {
     private Date startDate;
 
     private Date endDate;
-
+    public Student() {
+    }
     public Student(String name, int age, Sex sex, BigDecimal contractAmount) {
         this.name = name;
         this.age = age;
@@ -81,5 +82,18 @@ public class Student {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Öğrenci{" +
+                "İsim='" + name + '\'' +
+                ", Yaş=" + age +
+                ", Cinsiyet=" + sex +
+                ", Ödeme Durumu=" + isPaid +
+                ", Kontrat Ücreti =" + contractAmount +
+                ", startDate=" + startDate +
+                ", Bitiş Tarihi=" + endDate +
+                '}';
     }
 }

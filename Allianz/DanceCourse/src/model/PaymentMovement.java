@@ -41,4 +41,14 @@ public class PaymentMovement {
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
+
+    @Override
+    public String toString() {
+        return "PaymentMovement{" + "\n" +
+                "bankAccount=" + bankAccount.getBankName() +
+                ", description='" + description + '\'' +
+                ", movementType=" + movementType +
+                ", amount=" + amount +
+                '}';
+    }
 }

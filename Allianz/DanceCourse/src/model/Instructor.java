@@ -15,6 +15,9 @@ public class Instructor {
 
     private BigDecimal salary;
 
+    public Instructor() {
+    }
+
     public Instructor(String name, int age, Sex sex, BigDecimal salary) {
         this.name = name;
         this.age = age;
@@ -37,7 +40,6 @@ public class Instructor {
     public void setBranchList(List<Branch> branchList) {
         this.branchList = branchList;
     }
-    public void addBranchtToList(Branch branch){ this.branchList.add(branch);}
 
 
     public int getAge() {
@@ -67,10 +69,10 @@ public class Instructor {
     @Override
     public String toString() {
         return  "\n" +
-                "Eğitmen İsmi= " + name +
-                ",Branş Listesi= " + branchList +
-                ", Yaş= " + age +
-                ", Cinsiyet= " + sex +
-                ", Maaş= " + salary;
+                "Instructor name= " + name +
+                ", Branch List= " + branchList +
+                ", Age= " + age +
+                ", Sex= " + sex +
+                ", Salary= " + salary;
     }
 }
