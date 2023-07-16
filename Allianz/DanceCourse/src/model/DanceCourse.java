@@ -158,6 +158,8 @@ public class DanceCourse {
                 "Instructor List= " + instructorList + "\n" +
                 "Student List= " + studentList + "\n" +
                 "Branch List= " + branchList + '\n' +
+                "Lecture List= " + lectureList + '\n' +
+                "Total Capacity= " + capacity + '\n' +
                 '}';
     }
 

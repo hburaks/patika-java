@@ -11,13 +11,12 @@ import java.util.Scanner;
 public class BranchService {
     public static DanceCourse createBranch(DanceCourse danceCourse){
         Scanner inp = new Scanner(System.in);
-        System.out.print("Branş ismini giriniz: ");
+        System.out.print("Branch name : ");
         String branchName = inp.nextLine();
         Branch branch = createBranch(branchName);
         while(!createBranchToBranchPool( danceCourse.getBranchList(), branch)){
             createBranchToBranchPool( danceCourse.getBranchList(), branch);
         };
-        DanceCourseService.addBranchToDanceCourse(danceCourse,branch);
         return danceCourse;
     }
 
@@ -40,7 +39,7 @@ public class BranchService {
             branchList.add(branch);
             return true;
         } else {
-            System.err.println("Branş ismi " + branch.getName() + " daha önceden mevcut.");
+            System.err.println("Branch name " + branch.getName() + " is already exist.");
             return false;
         }
     }

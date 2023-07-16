@@ -72,6 +72,9 @@ public class AdminService {
             System.out.println("2 - Add new instructor");
             System.out.println("3 - Add new student");
             System.out.println("4 - Create branch");
+            System.out.println("5 - Create lecture");
+            System.out.println("6 - Add instructor to lecture");
+            System.out.println("7 - Add student to lecture");
             System.out.println("0 - Back to the top menu");
             System.out.print("Please select the action: ");
             int choice = inp.nextInt();
@@ -101,7 +104,13 @@ public class AdminService {
                                 .get(danceCourse.getBranchList().size() -1)
                                 .getName() + " added to branch list ----------------- ");
 
-            }else {
+            } else if (choice == 5){
+                danceCourse = LectureService.createLecture(danceCourse);
+            } else if (choice == 6){
+                danceCourse = LectureService.addInstructorToLecture(danceCourse);
+            } else if (choice == 7){
+                danceCourse = LectureService.addStudentToLecture(danceCourse);
+            } else {
                 System.out.println("----------------- Please select from the options -----------------");
             }
         }

@@ -5,6 +5,7 @@ import model.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class DanceCourseService {
 
@@ -153,6 +154,26 @@ public class DanceCourseService {
             danceCourse.setStudentList(new ArrayList<>());
             danceCourse.getStudentList().add(student);
         }
+    }
+    public static Branch getBranchFromDanceCourse(DanceCourse danceCourse){
+        Scanner inp = new Scanner(System.in);
+        boolean running2 = true;
+        Branch branch = null;
+        while(running2){
+            System.out.println("Options:");
+            for(int i = 0; i < danceCourse.getBranchList().size(); i++){
+                System.out.println(i + 1 + " - " + danceCourse.getBranchList().get(i));
+            }
+            System.out.print("Please specify the branch: ");
+            int choice = inp.nextInt() -1;
+            if (choice < danceCourse.getBranchList().size() && choice >= 0) {
+                branch = danceCourse.getBranchList().get(choice);
+                running2 = false;
+            } else {
+                System.out.println("----------------- Please select from the options -----------------");
+            }
+        }
+        return branch;
     }
 
 }

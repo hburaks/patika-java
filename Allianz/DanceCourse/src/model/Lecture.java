@@ -13,11 +13,11 @@ public class Lecture {
 
     private int capacity;
 
+    private LectureType lectureType;
+
     private Set<LectureScheduleTime> lectureScheduleTimeSet;
 
     private List<Student> studentList;
-
-
     public String getName() {
         return name;
     }
@@ -64,6 +64,14 @@ public class Lecture {
 
     public void setStudentList(List<Student> studentList) {
         this.studentList = studentList;
+    }
+
+    public LectureType getLectureType() {
+        return lectureType;
+    }
+
+    public void setLectureType(LectureType lectureType) {
+        this.lectureType = lectureType;
     }
 
     @Override

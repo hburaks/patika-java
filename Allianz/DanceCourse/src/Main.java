@@ -38,15 +38,3 @@ public class Main {
         }
     }
 }
-
-/*
-* Kullanıcı tipi
- * Yönetici
- * öğretmen bilgilerini gir
- * Banka bilgilerini gir
- * Branşları oluştur
- * Öğretmen
- * Öğrenci
-*
-*
-*  */

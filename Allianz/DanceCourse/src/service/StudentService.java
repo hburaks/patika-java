@@ -97,7 +97,7 @@ public class StudentService {
         while(running4){
             System.out.print("Student age: ");
             studentAge = inp.nextInt();
-            if (studentAge > 53) {
+            if (studentAge > 18) {
                 running4 = false;
             }  else {
                 System.out.println("----------------- Student age must be higher than 18 -----------------");

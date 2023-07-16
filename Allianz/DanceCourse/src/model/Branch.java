@@ -20,6 +20,6 @@ public class Branch {
 
     @Override
     public String toString() {
-        return  "Branş İsmi= " + name;
+        return  "Branch name= " + name;
     }
 }

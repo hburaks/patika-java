@@ -7,13 +7,13 @@ import java.util.Scanner;
 
 public class InstructorService {
     public static DanceCourse start(DanceCourse danceCourse) {
-        System.out.println("------------------- Continue as student --------------------------");
+        System.out.println("------------------- Continue as Instructor --------------------------");
         Scanner inp = new Scanner(System.in);
         boolean running = true;
         while(running){
             System.out.println("Options:");
             System.out.println("1 - Get info about the course");
-            System.out.println("2 - Add");
+            System.out.println("2 - Add student");
             System.out.println("0 - Back to the top menu");
             System.out.print("Please select the option: ");
             int choice = inp.nextInt();

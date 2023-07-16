@@ -6,7 +6,7 @@ import model.LectureScheduleTime;
 public class LectureScheduleTimeService {
 
 
-    public LectureScheduleTime createLectureScheduleTime(Day day, String time) {
+    public static LectureScheduleTime createLectureScheduleTime(Day day, String time) {
 
         LectureScheduleTime lectureScheduleTime = new LectureScheduleTime();
         lectureScheduleTime.setDay(day);

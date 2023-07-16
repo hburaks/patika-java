@@ -86,14 +86,14 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Öğrenci{" +
-                "İsim='" + name + '\'' +
-                ", Yaş=" + age +
-                ", Cinsiyet=" + sex +
-                ", Ödeme Durumu=" + isPaid +
-                ", Kontrat Ücreti =" + contractAmount +
-                ", startDate=" + startDate +
-                ", Bitiş Tarihi=" + endDate +
+        return "Student{" +
+                "Name='" + name + '\'' +
+                ", Age=" + age +
+                ", Sex=" + sex +
+                ", Payment status=" + isPaid +
+                ", Contract amount =" + contractAmount +
+                ", Start Date=" + startDate +
+                ", End Date=" + endDate +
                 '}';
     }
 }
