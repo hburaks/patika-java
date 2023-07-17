@@ -6,6 +6,11 @@ public class Store {
     private String name;
     private ArrayList<Brand> brandList;
 
+    public Store(String name, ArrayList<Brand> brandList) {
+        this.name = name;
+        this.brandList = brandList;
+    }
+
     public String getName() {
         return name;
     }

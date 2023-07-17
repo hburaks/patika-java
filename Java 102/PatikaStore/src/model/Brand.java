@@ -1,8 +1,14 @@
 package model;
 
 public class Brand {
+    private static int lastId = 0;
     private int id;
     private String name;
+
+    public Brand(String name) {
+        this.name = name;
+        this.id = ++lastId;
+    }
 
     public int getId() {
         return id;
