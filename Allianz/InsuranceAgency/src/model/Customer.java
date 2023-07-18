@@ -74,4 +74,18 @@ public class Customer {
     public void setVehicleList(ArrayList<Vehicle> vehicleList) {
         this.vehicleList = vehicleList;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", customerTypeEnum=" + customerTypeEnum +
+                ", bankAccountList=" + bankAccountList +
+                ", vehicleList=" + vehicleList +
+                ", insuranceRequestList=" + insuranceRequestList +
+                ", policyList=" + policyList +
+                ", paymentMovementList=" + paymentMovementList +
+                '}'  + "\n";
+    }
+
 }

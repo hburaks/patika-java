@@ -1,19 +1,20 @@
 package model;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Policy {
     private InsuranceCompany insuranceCompany;
     private Vehicle vehicle;
     private BigDecimal price;
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
     public Policy() {
     }
 
-    public Policy(InsuranceCompany insuranceCompany, Vehicle vehicle, BigDecimal price, Date startDate, Date endDate) {
+    public Policy(InsuranceCompany insuranceCompany, Vehicle vehicle, BigDecimal price, LocalDate startDate, LocalDate endDate) {
         this.insuranceCompany = insuranceCompany;
         this.vehicle = vehicle;
         this.price = price;
@@ -45,19 +46,30 @@ public class Policy {
         this.price = price;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Policy{" +
+                "insuranceCompany=" + insuranceCompany +
+                ", vehicle=" + vehicle +
+                ", price=" + price +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                '}' + "\n";
     }
 }

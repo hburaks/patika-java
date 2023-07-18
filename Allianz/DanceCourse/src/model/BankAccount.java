@@ -55,6 +55,6 @@ public class BankAccount {
                 "Banka İsmi= " + bankName +
                 ", IBAN= " + ibanNo +
                 ", Şirket İsmi= " + companyName +
-                ", Bakiye= " + amount;
+                ", Bakiye= " + amount  + "\n";
     }
 }

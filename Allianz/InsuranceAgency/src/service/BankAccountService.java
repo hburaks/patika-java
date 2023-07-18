@@ -26,24 +26,6 @@ public class BankAccountService {
         }
         return null;
     }
-    public BankAccount getBankAccountWithEnoughMoney(Agency bankAccountOwner , BigDecimal amount) {
-
-        for (BankAccount bankAccount : bankAccountOwner.getBankAccountList()) {
-            if (bankAccount.getAmount().compareTo(amount) >= 0) {
-                return bankAccount;
-            }
-        }
-        return null;
-    }
-    public BankAccount getBankAccountWithEnoughMoney(InsuranceCompany bankAccountOwner , BigDecimal amount) {
-
-        for (BankAccount bankAccount : bankAccountOwner.getBankAccountList()) {
-            if (bankAccount.getAmount().compareTo(amount) >= 0) {
-                return bankAccount;
-            }
-        }
-        return null;
-    }
     public BankAccount getBankAccountToSendMoney(Customer bankAccountOwner){
         BigDecimal amount = BigDecimal.valueOf(0);
         BankAccount bankAccountWithMinMoney = null;
@@ -52,6 +34,9 @@ public class BankAccountService {
                 bankAccountWithMinMoney = bankAccount;
                 amount = bankAccountWithMinMoney.getAmount();
             }
+        }
+        if(bankAccountWithMinMoney == null){
+            System.err.println("Bank Account could not found");
         }
         return bankAccountWithMinMoney;
     }
@@ -64,6 +49,9 @@ public class BankAccountService {
                 amount = bankAccountWithMinMoney.getAmount();
             }
         }
+        if(bankAccountWithMinMoney == null){
+            System.err.println("Bank Account could not found");
+        }
         return bankAccountWithMinMoney;
     }
     public BankAccount getBankAccountToSendMoney(InsuranceCompany bankAccountOwner){
@@ -75,7 +63,16 @@ public class BankAccountService {
                 amount = bankAccountWithMinMoney.getAmount();
             }
         }
+        if(bankAccountWithMinMoney == null){
+            System.err.println("Bank Account could not found");
+        }
         return bankAccountWithMinMoney;
+    }
+    public void sendMoneyToAccount(BankAccount account, BigDecimal amount){
+        account.setAmount(account.getAmount().add(amount));
+    }
+    public void getMoneyFromAccount(BankAccount account, BigDecimal amount){
+        account.setAmount(account.getAmount().subtract(amount));
     }
 
 }

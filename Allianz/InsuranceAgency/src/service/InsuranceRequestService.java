@@ -6,10 +6,11 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class InsuranceRequestService {
-    public InsuranceRequest createInsuranceRequest(Vehicle vehicle, Policy policy){
+    public InsuranceRequest createInsuranceRequest(Vehicle vehicle, InsuranceTypeEnum insuranceTypeEnum, Agency agency){
         InsuranceRequest insuranceRequest = new InsuranceRequest();
         insuranceRequest.setVehicle(vehicle);
-        insuranceRequest.setPolicy(policy);
+        insuranceRequest.setInsuranceTypeEnum(insuranceTypeEnum);
+        insuranceRequest.setAgency(agency);
         return insuranceRequest;
     }
 
@@ -21,5 +22,9 @@ public class InsuranceRequestService {
             proposalList.add(proposal);
             insuranceRequest.setProposalList(proposalList);
         }
+    }
+
+    public void setPolicyToInsuranceRequest(InsuranceRequest insuranceRequest, Policy policy) {
+        insuranceRequest.setPolicy(policy);
     }
 }

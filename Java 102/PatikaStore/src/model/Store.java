@@ -5,10 +5,11 @@ import java.util.ArrayList;
 public class Store {
     private String name;
     private ArrayList<Brand> brandList;
+    private ArrayList<Product> productList;
+    private ArrayList<Category> categoryList;
 
-    public Store(String name, ArrayList<Brand> brandList) {
+    public Store(String name) {
         this.name = name;
-        this.brandList = brandList;
     }
 
     public String getName() {
@@ -23,15 +24,23 @@ public class Store {
         return brandList;
     }
 
-    public void setBrandList(ArrayList brandList) {
+    public void setBrandList(ArrayList<Brand> brandList) {
         this.brandList = brandList;
     }
 
-    @Override
-    public String toString() {
-        return "Store{" +
-                "name='" + name + '\'' +
-                ", brandList=" + brandList +
-                '}';
+    public ArrayList<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(ArrayList<Product> productList) {
+        this.productList = productList;
+    }
+
+    public ArrayList<Category> getCategoryList() {
+        return categoryList;
+    }
+
+    public void setCategoryList(ArrayList<Category> categoryList) {
+        this.categoryList = categoryList;
     }
 }

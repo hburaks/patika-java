@@ -97,6 +97,6 @@ public class InsuranceCompany {
                 ", insuranceList=" + insuranceList +
                 ", bankAccountList=" + bankAccountList +
                 ", paymentMovementList=" + paymentMovementList +
-                '}';
+                '}'  + "\n";
     }
 }

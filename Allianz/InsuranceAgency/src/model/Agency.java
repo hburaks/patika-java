@@ -62,6 +62,6 @@ public class Agency {
                 ", paymentMovementList=" + paymentMovementList +
                 ", insuranceCompanyList=" + insuranceCompanyList +
                 ", customerList=" + customerList +
-                '}';
+                '}'  + "\n";
     }
 }

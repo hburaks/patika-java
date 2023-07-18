@@ -1,13 +1,14 @@
 package service;
 
 import model.BankAccount;
+import model.InsuranceRequest;
 import model.MovementTypeEnum;
 import model.PaymentMovement;
 
 import java.math.BigDecimal;
 
 public class PaymentMovementService {
-    public static PaymentMovement createPaymentMovement(BankAccount bankAccount,
+    public PaymentMovement createPaymentMovement(BankAccount bankAccount,
                                                         String description,
                                                         MovementTypeEnum movementType,
                                                         BigDecimal amount) {
@@ -18,5 +19,7 @@ public class PaymentMovementService {
         paymentMovement.setAmount(amount);
         return paymentMovement;
     }
-
+    public  String createDescription(InsuranceRequest insuranceRequest){
+        return insuranceRequest.getVehicle().getPlate() + " " + insuranceRequest.getInsuranceTypeEnum().toString() + " payment";
+    }
 }

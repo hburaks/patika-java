@@ -6,13 +6,14 @@ public class InsuranceRequest {
     private ArrayList<Proposal> proposalList;
     private Vehicle vehicle;
     private Policy policy;
+    private InsuranceTypeEnum insuranceTypeEnum;
+    private Agency agency;
 
     public InsuranceRequest() {
     }
 
-    public InsuranceRequest(Vehicle vehicle, Policy policy) {
+    public InsuranceRequest(Vehicle vehicle) {
         this.vehicle = vehicle;
-        this.policy = policy;
     }
 
     public ArrayList<Proposal> getProposalList() {
@@ -37,5 +38,31 @@ public class InsuranceRequest {
 
     public void setPolicy(Policy policy) {
         this.policy = policy;
+    }
+
+    public InsuranceTypeEnum getInsuranceTypeEnum() {
+        return insuranceTypeEnum;
+    }
+
+    public void setInsuranceTypeEnum(InsuranceTypeEnum insuranceTypeEnum) {
+        this.insuranceTypeEnum = insuranceTypeEnum;
+    }
+
+    public Agency getAgency() {
+        return agency;
+    }
+
+    public void setAgency(Agency agency) {
+        this.agency = agency;
+    }
+
+    @Override
+    public String toString() {
+        return "InsuranceRequest{" +
+                "proposalList=" + proposalList +
+                ", vehicle=" + vehicle +
+                ", policy=" + policy +
+                ", insuranceTypeEnum=" + insuranceTypeEnum +
+                '}' + "\n";
     }
 }

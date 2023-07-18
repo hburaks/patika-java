@@ -46,7 +46,7 @@ public class Employee {
                 "\nBonus: " + bonus() +
                 "\nMaaş Artışı: " + raiseSalary() +
                 "\nVergi ve Bonuslar ile birlikte maaş: " + getTotalSalary() +
-                "\nToplam Maaş: " + (salary + raiseSalary());
+                "\nToplam Maaş: " + (salary + raiseSalary()) + "\n";
     }
 
     public static void main(String[] args) {
