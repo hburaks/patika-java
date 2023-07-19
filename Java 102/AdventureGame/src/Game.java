@@ -29,32 +29,30 @@ public class Game {
                     player.printCharInfo();
                     break;
                 case 1:
-                    location = new SafeHouse(player);
-                    location.onLocation();
+                    location = locations[0];
                     break;
                 case 2:
-                    location = new ToolStore(player);
-                    location.onLocation();
+                    location = locations[1];
                     break;
                 case 3:
-                    location = new Cave(player);
-                    location.onLocation();
+                    location = locations[2];
                     break;
                 case 4:
-                    location = new Forest(player);
-                    location.onLocation();
+                    location = locations[3];
                     break;
                 case 5:
-                    location = new River(player);
-                    location.onLocation();
+                    location = locations[4];
                     break;
                 case 6:
-                    location = new Quarry(player);
-                    location.onLocation();
+                    location = locations[5];
                     break;
                 default:
                     System.out.println("Please select from the options");
             }
+                if(!location.onLocation()){
+                    System.out.println("Game OVER!!!");
+                    break;
+                }
         }
     }
 }

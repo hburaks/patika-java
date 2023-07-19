@@ -32,12 +32,14 @@ public abstract class Location {
         this.name = name;
     }
 
-    public boolean isSelectCombatValue() {
+    public boolean getSelectCombatValue() {
         return selectCombatValue;
     }
 
     public void setSelectCombatValue(boolean selectCombatValue) {
         this.selectCombatValue = selectCombatValue;
     }
+
+
 }
 

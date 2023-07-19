@@ -104,7 +104,7 @@ public class Player {
     }
 
     public void isDelete(int choose) {
-        if (location.isSelectCombatValue()) {
+        if (location.getSelectCombatValue()) {
             System.out.println("All creatures in this area are dead, please choose another area!");
 
         }
