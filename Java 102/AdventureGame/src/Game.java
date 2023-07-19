@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
@@ -14,7 +15,7 @@ public class Game {
         Location location = null;
         Location[] locations = { new SafeHouse(player), new ToolStore(player),
                 new Cave(player), new Forest(player), new River(player), new Quarry(player)};
-
+        ArrayList<Location> clearedAreaList = new ArrayList<>();
         while (true) {
             System.out.println("0 - Player Info ");
             int i = 1;
@@ -25,9 +26,6 @@ public class Game {
             System.out.print("Select the place you want to go : ");
             int selectLoc = input.nextInt();
             switch (selectLoc) {
-                case 0:
-                    player.printCharInfo();
-                    break;
                 case 1:
                     location = locations[0];
                     break;
@@ -46,11 +44,17 @@ public class Game {
                 case 6:
                     location = locations[5];
                     break;
-                default:
-                    System.out.println("Please select from the options");
             }
-                if(!location.onLocation()){
+            boolean isAreaCleared = location.onLocation();
+                if(!isAreaCleared){
                     System.out.println("Game OVER!!!");
+                    break;
+                } else if (isAreaCleared && location.getSelectCombatValue() == true) {
+                    clearedAreaList.add(location);
+                }
+                if (clearedAreaList.size() > 5){
+                    System.out.println("You Won the Game!!" +
+                            "\n Congrats!!!");
                     break;
                 }
         }
