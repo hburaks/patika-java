@@ -90,12 +90,12 @@ public abstract class BattleLoc extends Location {
 
         if (this.getPlayer().getCharacter().getHealth() > this.getObstacle().getHealth()) {
             System.out.println("You have defeated the enemy!");
-            /*if (this.getObstacle().getName().equals("Snake")) {
+            if (this.getObstacle().getName().equals("Snake")) {
                 Player player = this.getPlayer();
-                player.awardForQuarry(this.getObstacle().getAward());
+                player.getAwardFromQuarry();
                 this.setSelectCombatValue(true);
                 return true;
-            } else {*/
+            } else {
             int totalGain = this.getObstacle().getAward() * getMaxObstacle();
             System.out.println(totalGain + " You won the gold award");
             System.out.println("Your previous money: " + this.getPlayer().getCharacter().getMoney());
@@ -106,7 +106,7 @@ public abstract class BattleLoc extends Location {
 
             this.setSelectCombatValue(true);
             return true;
-//            }
+            }
         } else {
             return false;
         }

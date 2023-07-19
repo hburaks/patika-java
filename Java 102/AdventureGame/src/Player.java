@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Player {
@@ -11,7 +12,7 @@ public class Player {
     }
 
     public void selectChar() {
-        CharacterTypes[] characters = { new Samurai(), new Archer(), new Knight() };
+        CharacterTypes[] characters = {new Samurai(), new Archer(), new Knight()};
         int index = 1;
         for (CharacterTypes character : characters) {
             System.out.println(index + " - Character: " + character.getCharacterName()
@@ -44,12 +45,13 @@ public class Player {
     private void initPlayer(CharacterTypes character) {
         this.character = character;
     }
-    public void printCharInfo(){
+
+    public void printCharInfo() {
         System.out.println("Hello " + this.getName());
-        System.out.println("Damage :  "+ this.character.getTotalDamage());
-        System.out.println("Block :  "+ this.character.getBlock());
-        System.out.println("Health :  "+ this.character.getHealth());
-        System.out.println("Money :  "+ this.character.getMoney());
+        System.out.println("Damage :  " + this.character.getTotalDamage());
+        System.out.println("Block :  " + this.character.getBlock());
+        System.out.println("Health :  " + this.character.getHealth());
+        System.out.println("Money :  " + this.character.getMoney());
         System.out.println("Game is starting. Good Luck!!");
     }
 
@@ -58,7 +60,7 @@ public class Player {
             System.out.println();
             System.out.println("**************************************************************");
             System.out.println("Now choose a zone! ");
-            Location[] locations = { new SafeHouse(this), new ToolStore(this),
+            Location[] locations = {new SafeHouse(this), new ToolStore(this),
                     new Cave(this), new Forest(this), new River(this), new Quarry(this)};
             for (Location location : locations) {
                 System.out.println("Zone: " + location.getName());
@@ -110,6 +112,32 @@ public class Player {
         }
     }
 
+    public void getAwardFromQuarry() {
+        Random random = new Random();
+        int i = random.nextInt(2);
+        int charWeaponId = this.getCharacter().getInventory().getWeapon().getId();
+        int charArmorId = this.character.getInventory().getArmor().getId();
+        if (i == 0) {
+            if(charWeaponId == -1){
+                charWeaponId = 0;
+            }
+            if (charArmorId == -1 ){
+                charArmorId = 0;
+            }
+            if (charWeaponId
+                    < 3) {
+                this.getCharacter().getInventory().setWeapon(Weapon.getWeaponById(charWeaponId + 1));
+            }
+            System.out.println("You won the " + Weapon.getWeaponById(charWeaponId + 1).getName() + " as a reward.");
+        } else if (i == 1) {
+            if (this.getCharacter().getInventory().getArmor().getId()
+                    < 3) {
+                this.getCharacter().getInventory().setArmor(Armor.getArmorById(charArmorId + 1));
+                System.out.println("You won the " + Armor.getArmorById(charArmorId + 1).getName() + " as a reward.");
+            }
+
+        }
+    }
 
 
     public String getName() {

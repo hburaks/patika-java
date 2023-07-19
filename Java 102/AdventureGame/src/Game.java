@@ -17,7 +17,6 @@ public class Game {
                 new Cave(player), new Forest(player), new River(player), new Quarry(player)};
         ArrayList<Location> clearedAreaList = new ArrayList<>();
         while (true) {
-            System.out.println("0 - Player Info ");
             int i = 1;
             for (Location location1 : locations) {
                 System.out.println( i + " - " + location1.getName());
