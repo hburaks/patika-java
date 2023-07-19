@@ -10,7 +10,7 @@ public class VehicleService {
                                  int modelYear,
                                  String plate,
                                  String chassisNumber,
-                                 ColorTypeEnum color){
+                                 ColorTypeEnum color) {
         Vehicle vehicle = new Vehicle();
         vehicle.setBrand(brand);
         vehicle.setModel(model);
@@ -20,6 +20,7 @@ public class VehicleService {
         vehicle.setColor(color);
         return vehicle;
     }
+
     public void addAccidentToVehicle(Vehicle vehicle, Accident accident) {
         if (vehicle.getAccidentList() != null) {
             vehicle.getAccidentList().add(accident);

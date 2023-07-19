@@ -26,7 +26,8 @@ public class BankAccountService {
         }
         return null;
     }
-    public BankAccount getBankAccountToSendMoney(Customer bankAccountOwner){
+
+    public BankAccount getBankAccountToSendMoney(Customer bankAccountOwner) {
         BigDecimal amount = BigDecimal.valueOf(0);
         BankAccount bankAccountWithMinMoney = null;
         for (BankAccount bankAccount : bankAccountOwner.getBankAccountList()) {
@@ -35,12 +36,13 @@ public class BankAccountService {
                 amount = bankAccountWithMinMoney.getAmount();
             }
         }
-        if(bankAccountWithMinMoney == null){
+        if (bankAccountWithMinMoney == null) {
             System.err.println("Bank Account could not found");
         }
         return bankAccountWithMinMoney;
     }
-    public BankAccount getBankAccountToSendMoney(Agency bankAccountOwner){
+
+    public BankAccount getBankAccountToSendMoney(Agency bankAccountOwner) {
         BigDecimal amount = BigDecimal.valueOf(0);
         BankAccount bankAccountWithMinMoney = null;
         for (BankAccount bankAccount : bankAccountOwner.getBankAccountList()) {
@@ -49,12 +51,13 @@ public class BankAccountService {
                 amount = bankAccountWithMinMoney.getAmount();
             }
         }
-        if(bankAccountWithMinMoney == null){
+        if (bankAccountWithMinMoney == null) {
             System.err.println("Bank Account could not found");
         }
         return bankAccountWithMinMoney;
     }
-    public BankAccount getBankAccountToSendMoney(InsuranceCompany bankAccountOwner){
+
+    public BankAccount getBankAccountToSendMoney(InsuranceCompany bankAccountOwner) {
         BigDecimal amount = BigDecimal.valueOf(0);
         BankAccount bankAccountWithMinMoney = null;
         for (BankAccount bankAccount : bankAccountOwner.getBankAccountList()) {
@@ -63,15 +66,17 @@ public class BankAccountService {
                 amount = bankAccountWithMinMoney.getAmount();
             }
         }
-        if(bankAccountWithMinMoney == null){
+        if (bankAccountWithMinMoney == null) {
             System.err.println("Bank Account could not found");
         }
         return bankAccountWithMinMoney;
     }
-    public void sendMoneyToAccount(BankAccount account, BigDecimal amount){
+
+    public void sendMoneyToAccount(BankAccount account, BigDecimal amount) {
         account.setAmount(account.getAmount().add(amount));
     }
-    public void getMoneyFromAccount(BankAccount account, BigDecimal amount){
+
+    public void getMoneyFromAccount(BankAccount account, BigDecimal amount) {
         account.setAmount(account.getAmount().subtract(amount));
     }
 

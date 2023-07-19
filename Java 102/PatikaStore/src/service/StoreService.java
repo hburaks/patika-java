@@ -64,10 +64,11 @@ public class StoreService {
                 "Battery",
                 "Color"
         );
-        System.out.println("----------------------------------------------------------------------------------------------------");
+        System.out.println();
+
         for (Product product : store.getProductList()) {
             if (product.getCategory().getCategoryId() == 01) {
-                System.out.format("%-3d | %-15s | %-10s | %-8s TL | %-10d | %-6.2f GB | %-4.2f inch | %-5.2f RAM | %-8.2f | %-10s",
+                System.out.format("%-3d | %-15s | %-10s | %-7s TL | %-10d | %-6.2f GB | %-4.2f inch | %-5.2f RAM | %-8.2f | %-10s",
                         product.getId(),
                         product.getName(),
                         product.getBrand().getName(),
@@ -78,6 +79,8 @@ public class StoreService {
                         product.getRam(),
                         product.getBatteryPower(),
                         product.getColor());
+                System.out.println();
+
 
             }
         }
@@ -100,7 +103,8 @@ public class StoreService {
                 "Screen",
                 "RAM"
         );
-        System.out.println("----------------------------------------------------------------------------------------------------");
+        System.out.println();
+
         for (Product product : store.getProductList()) {
             if (product.getCategory().getCategoryId() == 02) {
                 System.out.format("%-3d | %-15s | %-10s | %-8s TL | %-10d | %-6.2f GB | %-4.2f inch | %-5.2f RAM",
@@ -113,6 +117,7 @@ public class StoreService {
                         product.getScreenSize(),
                         product.getRam()
                 );
+                System.out.println();
 
             }
         }
@@ -125,7 +130,7 @@ public class StoreService {
         }
 
         System.out.println("----------------------------------------------------------------------------------------------------");
-        System.out.format("%-3s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s",
+        System.out.format("%-3s | %-15s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s",
                 "ID",
                 "Product Name",
                 "Brand",
@@ -137,10 +142,10 @@ public class StoreService {
                 "Battery",
                 "Color"
         );
-        System.out.println("----------------------------------------------------------------------------------------------------");
+        System.out.println();
         for (Product product : store.getProductList()) {
             if (product.getCategory().getCategoryId() == id) {
-                System.out.format("%-3d | %-10s | %-10s | %-8s TL | %-10d | %-6.2f GB | %-4.2f inch | %-5.2f RAM | %-8.2f | %-10s",
+                System.out.format("%-3d | %-15s | %-10s | %-8s TL | %-10d | %-6.2f GB | %-4.2f inch | %-5.2f RAM | %-8.2f | %-10s",
                         product.getId(),
                         product.getName(),
                         product.getBrand().getName(),
@@ -151,6 +156,8 @@ public class StoreService {
                         product.getRam(),
                         product.getBatteryPower(),
                         product.getColor());
+                System.out.println();
+
 
             }
         }
@@ -163,7 +170,7 @@ public class StoreService {
         }
 
         System.out.println("----------------------------------------------------------------------------------------------------");
-        System.out.format("%-3s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s",
+        System.out.format("%-3s | %-15s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s",
                 "ID",
                 "Product Name",
                 "Brand",
@@ -175,11 +182,10 @@ public class StoreService {
                 "Battery",
                 "Color"
         );
-        System.out.println("here");
-        System.out.println("----------------------------------------------------------------------------------------------------");
+        System.out.println();
         for (Product product : store.getProductList()) {
-            if (product.getBrand().getName().toLowerCase() == brandName.toLowerCase()) {
-                System.out.format("%-3d | %-10s | %-10s | %-8s TL | %-10d | %-8.2f GB | %-4.2f inch | %-5.2f RAM | %-8.2f | %-10s",
+            if (product.getBrand().getName() == brandName) {
+                System.out.format("%-3d | %-15s | %-10s | %-8s TL | %-10d | %-6.2f GB | %-4.2f inch | %-5.2f RAM | %-8.2f | %-10s",
                         product.getId(),
                         product.getName(),
                         product.getBrand().getName(),
@@ -190,7 +196,8 @@ public class StoreService {
                         product.getRam(),
                         product.getBatteryPower(),
                         product.getColor());
-                System.out.println("here");
+                System.out.println();
+
             }
         }
         System.out.println("----------------------------------------------------------------------------------------------------");

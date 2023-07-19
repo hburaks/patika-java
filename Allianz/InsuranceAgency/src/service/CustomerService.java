@@ -87,14 +87,13 @@ public class CustomerService {
                         if (customerBankAccount != null) {
                             BigDecimal commissionRatio = proposal.getCompany().getCommission();
 
-                            bankAccountService.getMoneyFromAccount(customerBankAccount,calculatedDiscountedPrice);
+                            bankAccountService.getMoneyFromAccount(customerBankAccount, calculatedDiscountedPrice);
 
-                            BankAccount companyBankAccount =  bankAccountService.getBankAccountToSendMoney(proposal1.getCompany());
+                            BankAccount companyBankAccount = bankAccountService.getBankAccountToSendMoney(proposal1.getCompany());
                             BankAccount agencyBankAccount = bankAccountService.getBankAccountToSendMoney(insuranceRequest1.getAgency());
 
                             bankAccountService.sendMoneyToAccount(agencyBankAccount, calculatedDiscountedPrice.multiply(commissionRatio));
                             bankAccountService.sendMoneyToAccount(companyBankAccount, calculatedDiscountedPrice.multiply(BigDecimal.ONE.subtract(commissionRatio)));
-
 
 
                             PaymentMovement paymentMovementForCustomer = paymentMovementService.createPaymentMovement(customerBankAccount,

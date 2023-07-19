@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class InsuranceCompanyService {
-    public InsuranceCompany createInsuranceCompany(String name, String taxOffice, String taxNumber, String address, BigDecimal commission){
+    public InsuranceCompany createInsuranceCompany(String name, String taxOffice, String taxNumber, String address, BigDecimal commission) {
         InsuranceCompany insuranceCompany = new InsuranceCompany();
         insuranceCompany.setName(name);
         insuranceCompany.setTaxOffice(taxOffice);
@@ -16,28 +16,30 @@ public class InsuranceCompanyService {
         return insuranceCompany;
     }
 
-    public void addInsuranceToInsuranceCompany(InsuranceCompany insuranceCompany, Insurance insurance){
-        if(insuranceCompany.getInsuranceList()!=null) {
+    public void addInsuranceToInsuranceCompany(InsuranceCompany insuranceCompany, Insurance insurance) {
+        if (insuranceCompany.getInsuranceList() != null) {
             insuranceCompany.getInsuranceList().add(insurance);
-        }else {
+        } else {
             ArrayList<Insurance> insuranceList = new ArrayList<>();
             insuranceList.add(insurance);
             insuranceCompany.setInsuranceList(insuranceList);
         }
     }
-    public void addBankAccountToInsuranceCompany(InsuranceCompany insuranceCompany, BankAccount bankAccount){
-        if(insuranceCompany.getBankAccountList()!=null) {
+
+    public void addBankAccountToInsuranceCompany(InsuranceCompany insuranceCompany, BankAccount bankAccount) {
+        if (insuranceCompany.getBankAccountList() != null) {
             insuranceCompany.getBankAccountList().add(bankAccount);
-        }else {
+        } else {
             ArrayList<BankAccount> bankAccountList = new ArrayList<>();
             bankAccountList.add(bankAccount);
             insuranceCompany.setBankAccountList(bankAccountList);
         }
     }
-    public void addPaymentMovementToInsuranceCompany(InsuranceCompany insuranceCompany, PaymentMovement paymentMovement){
-        if(insuranceCompany.getPaymentMovementList()!=null) {
+
+    public void addPaymentMovementToInsuranceCompany(InsuranceCompany insuranceCompany, PaymentMovement paymentMovement) {
+        if (insuranceCompany.getPaymentMovementList() != null) {
             insuranceCompany.getPaymentMovementList().add(paymentMovement);
-        }else {
+        } else {
             ArrayList<PaymentMovement> paymentMovementList = new ArrayList<>();
             paymentMovementList.add(paymentMovement);
             insuranceCompany.setPaymentMovementList(paymentMovementList);

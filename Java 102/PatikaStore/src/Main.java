@@ -68,8 +68,8 @@ public class Main {
         storeService.printBrandList(store);
         storeService.printComputerList(store);
         storeService.printMobilePhoneList(store);
-        storeService.filterByBrand(store, "Huawei");
-        storeService.filterById(store, 02);
 
+        storeService.filterById(store, 01);
+        storeService.filterByBrand(store, "Huawei");
     }
 }

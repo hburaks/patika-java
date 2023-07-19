@@ -10,7 +10,7 @@ public class PolicyService {
                                Vehicle vehicle,
                                BigDecimal price,
                                LocalDate startDate,
-                               LocalDate endDate){
+                               LocalDate endDate) {
         Policy policy = new Policy();
         policy.setInsuranceCompany(insuranceCompany);
         policy.setVehicle(vehicle);

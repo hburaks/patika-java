@@ -9,9 +9,9 @@ import java.math.BigDecimal;
 
 public class PaymentMovementService {
     public PaymentMovement createPaymentMovement(BankAccount bankAccount,
-                                                        String description,
-                                                        MovementTypeEnum movementType,
-                                                        BigDecimal amount) {
+                                                 String description,
+                                                 MovementTypeEnum movementType,
+                                                 BigDecimal amount) {
         PaymentMovement paymentMovement = new PaymentMovement();
         paymentMovement.setBankAccount(bankAccount);
         paymentMovement.setDescription(description);
@@ -19,7 +19,8 @@ public class PaymentMovementService {
         paymentMovement.setAmount(amount);
         return paymentMovement;
     }
-    public  String createDescription(InsuranceRequest insuranceRequest){
+
+    public String createDescription(InsuranceRequest insuranceRequest) {
         return insuranceRequest.getVehicle().getPlate() + " " + insuranceRequest.getInsuranceTypeEnum().toString() + " payment";
     }
 }
