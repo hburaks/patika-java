@@ -1,12 +1,21 @@
+import java.util.Scanner;
+
 public abstract class Location {
-    protected Player player;
-    String name;
-    public Location(Player player, String name) {
+
+
+    private Player player;
+    private String name;
+    private boolean selectCombatValue = false;
+    public static Scanner scanner = new Scanner(System.in);
+
+    public Location( Player player, String name) {
         this.player = player;
         this.name = name;
-
     }
+
     abstract boolean onLocation();
+
+
     public Player getPlayer() {
         return player;
     }
@@ -23,7 +32,12 @@ public abstract class Location {
         this.name = name;
     }
 
+    public boolean isSelectCombatValue() {
+        return selectCombatValue;
+    }
 
-
-
+    public void setSelectCombatValue(boolean selectCombatValue) {
+        this.selectCombatValue = selectCombatValue;
+    }
 }
+

@@ -1,7 +1,7 @@
 public class Archer extends CharacterTypes {
 
     public Archer() {
-        super("Okçu", 7, 18, 20, 2);
+        super("Archer", 7, 18, 20, 2);
     }
 
 }

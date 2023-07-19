@@ -1,73 +1,26 @@
 public class Inventory {
-    private boolean water,food,firewood;
-    private String wName,aName;
-    private int damage,armor;
+    private Weapon weapon;
+    private Armor armor;
 
-    Inventory(){
-        this.water = false;
-        this.food = false;
-        this.firewood = false;
-        this.damage = 0;
-        this.armor = 0;
-        this.wName = null;
-        this.aName = null;
+    public Inventory() {
+        this.weapon = new Weapon(-1, "Fist", 2, 0);
+        this.armor = new Armor(-1, "Rag", 0, 0);
     }
 
-    public boolean isWater() {
-        return water;
+    public Weapon getWeapon() {
+        return weapon;
     }
 
-    public void setWater(boolean water) {
-        this.water = water;
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
     }
 
-    public boolean isFood() {
-        return food;
-    }
-
-    public void setFood(boolean food) {
-        this.food = food;
-    }
-
-    public boolean isFirewood() {
-        return firewood;
-    }
-
-    public void setFirewood(boolean firewood) {
-        this.firewood = firewood;
-    }
-
-    public String getwName() {
-        return wName;
-    }
-
-    public void setwName(String wName) {
-        this.wName = wName;
-    }
-
-    public String getaName() {
-        return aName;
-    }
-
-    public void setaName(String aName) {
-        this.aName = aName;
-    }
-
-    public int getDamage() {
-        return damage;
-    }
-
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
-    public int getArmor() {
+    public Armor getArmor() {
         return armor;
     }
 
-    public void setArmor(int armor) {
+    public void setArmor(Armor armor) {
         this.armor = armor;
     }
-
 
 }
