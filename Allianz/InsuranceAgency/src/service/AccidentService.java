@@ -3,13 +3,15 @@ package service;
 import model.Accident;
 import model.Agency;
 import model.BankAccount;
+import model.Vehicle;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class AccidentService {
-    public Accident createAccident(Date accidentDate,
+    public Accident createAccident(LocalDate accidentDate,
                                    String description,
                                    BigDecimal damagePrice,
                                    int failureRate) {
@@ -20,4 +22,6 @@ public class AccidentService {
         accident.setFailureRate(failureRate);
         return accident;
     }
+
+
 }

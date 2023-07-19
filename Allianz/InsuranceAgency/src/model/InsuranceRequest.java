@@ -7,7 +7,6 @@ public class InsuranceRequest {
     private Vehicle vehicle;
     private Policy policy;
     private InsuranceTypeEnum insuranceTypeEnum;
-    private Agency agency;
 
     public InsuranceRequest() {
     }
@@ -46,14 +45,6 @@ public class InsuranceRequest {
 
     public void setInsuranceTypeEnum(InsuranceTypeEnum insuranceTypeEnum) {
         this.insuranceTypeEnum = insuranceTypeEnum;
-    }
-
-    public Agency getAgency() {
-        return agency;
-    }
-
-    public void setAgency(Agency agency) {
-        this.agency = agency;
     }
 
     @Override

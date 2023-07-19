@@ -10,7 +10,6 @@ public class InsuranceRequestService {
         InsuranceRequest insuranceRequest = new InsuranceRequest();
         insuranceRequest.setVehicle(vehicle);
         insuranceRequest.setInsuranceTypeEnum(insuranceTypeEnum);
-        insuranceRequest.setAgency(agency);
         return insuranceRequest;
     }
 

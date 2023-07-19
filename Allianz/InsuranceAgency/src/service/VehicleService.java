@@ -2,6 +2,7 @@ package service;
 
 import model.*;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class VehicleService {
@@ -30,6 +31,15 @@ public class VehicleService {
             accidentList.add(accident);
             vehicle.setAccidentList(accidentList);
         }
-
+    }
+    public BigDecimal getTotalDamageOfTheVehicle(Vehicle vehicle){
+        BigDecimal totalDamageOfTheVehicle = BigDecimal.ZERO;
+        if(vehicle.getAccidentList() == null){
+            vehicle.setAccidentList(new ArrayList<>());
+        }
+        for(Accident accident : vehicle.getAccidentList()){
+            totalDamageOfTheVehicle = totalDamageOfTheVehicle.add(accident.getDamagePrice());
+        }
+        return totalDamageOfTheVehicle;
     }
 }

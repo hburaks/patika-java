@@ -74,7 +74,7 @@ public class CustomerService {
     }
 
 
-    public void acceptProposal(Customer customer, Proposal proposal, InsuranceRequest insuranceRequest) {
+    public void acceptProposal(Customer customer, Proposal proposal, InsuranceRequest insuranceRequest, Agency agency) {
         List<InsuranceRequest> insuranceRequestList = customer.getInsuranceRequestList();
         for (InsuranceRequest insuranceRequest1 : insuranceRequestList) {
             if (insuranceRequest1.equals(insuranceRequest)) {
@@ -90,7 +90,7 @@ public class CustomerService {
                             bankAccountService.getMoneyFromAccount(customerBankAccount, calculatedDiscountedPrice);
 
                             BankAccount companyBankAccount = bankAccountService.getBankAccountToSendMoney(proposal1.getCompany());
-                            BankAccount agencyBankAccount = bankAccountService.getBankAccountToSendMoney(insuranceRequest1.getAgency());
+                            BankAccount agencyBankAccount = bankAccountService.getBankAccountToSendMoney(agency);
 
                             bankAccountService.sendMoneyToAccount(agencyBankAccount, calculatedDiscountedPrice.multiply(commissionRatio));
                             bankAccountService.sendMoneyToAccount(companyBankAccount, calculatedDiscountedPrice.multiply(BigDecimal.ONE.subtract(commissionRatio)));
@@ -105,7 +105,7 @@ public class CustomerService {
                                     paymentMovementService.createDescription(insuranceRequest1),
                                     MovementTypeEnum.INCOME,
                                     calculatedDiscountedPrice.multiply(commissionRatio));
-                            agencyService.addPaymentMovementToAgency(insuranceRequest1.getAgency(), paymentMovementForAgency);
+                            agencyService.addPaymentMovementToAgency(agency, paymentMovementForAgency);
 
                             PaymentMovement paymentMovementForCompany = paymentMovementService.createPaymentMovement(companyBankAccount,
                                     paymentMovementService.createDescription(insuranceRequest1),
