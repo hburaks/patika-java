@@ -18,17 +18,8 @@ public enum Grade {
     public String getStringValue() {
         return stringValue;
     }
-
     public int getNumericValue() {
         return numericValue;
-    }
-
-    public void setStringValue(String stringValue) {
-        this.stringValue = stringValue;
-    }
-
-    public void setNumericValue(int numericValue) {
-        this.numericValue = numericValue;
     }
 
     @Override
