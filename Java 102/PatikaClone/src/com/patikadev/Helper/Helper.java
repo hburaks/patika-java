@@ -4,18 +4,19 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Helper {
-public static void setLayout(){
-    for(UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()){
-        if(info.getName().equals("Nimbus")){
-            try {
-                UIManager.setLookAndFeel(info.getClassName());
-            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
-                     UnsupportedLookAndFeelException e) {
-                throw new RuntimeException(e);
+    public static void setLayout() {
+        for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+            if (info.getName().equals("Nimbus")) {
+                try {
+                    UIManager.setLookAndFeel(info.getClassName());
+                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
+                         UnsupportedLookAndFeelException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
-}
+
     public static int getScreenCenter(String axis, Dimension size) {
         int point;
 
@@ -30,5 +31,26 @@ public static void setLayout(){
                 point = 0;
         }
         return point;
+    }
+
+    public static boolean isFieldEmpty(JTextField field) {
+        return field.getText().trim().isEmpty();
+    }
+
+    public static void showMsg(String str) {
+        String msg ="";
+        String title = "";
+        if(str == "empty"){
+            msg = "Please, fill all the inputs";
+            title = "Error!";
+        } else if (str == "success") {
+            msg = "Success";
+            title = "Result";
+        } else if(str == "error"){
+            msg = "There is an error!";
+            title = "Error!";
+        }
+        JOptionPane.showMessageDialog(null, msg, title, JOptionPane.INFORMATION_MESSAGE);
+
     }
 }
