@@ -168,4 +168,46 @@ public class User {
             return true;
         }
     }
+
+    public static ArrayList<User> searchUserList(String query){
+
+        return getUsers(query);
+    }
+
+    public static String searchQuery(String name,String uname,String user_type){
+        String query = "SELECT * FROM \"user\" WHERE uname LIKE '%{{uname}}%' AND name ILIKE '%{{name}}%'";
+        query = query.replace("{{uname}}", uname);
+        query = query.replace("{{name}}",name);
+        if (!user_type.isEmpty()){
+            query += " AND user_type='{{user_type}}'";
+            query = query.replace("{{user_type}}",user_type);
+        }
+        return query;
+    }
+
+
+
+    private static ArrayList<User> getUsers(String query) {
+        ArrayList<User> userList = new ArrayList<>();
+        User obj;
+        try {
+
+            Statement st = DBConnector.getInstance().createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()){
+                obj = new User();
+                obj.setId((rs.getInt("id")));
+                obj.setName(rs.getString("name"));
+                obj.setUname(rs.getString("uname"));
+                obj.setPass(rs.getString("pass"));
+                obj.setType(rs.getString("user_type"));
+                userList.add(obj);
+
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return userList;
+    }
 }
