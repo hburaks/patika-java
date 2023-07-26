@@ -5,6 +5,8 @@ public class Player {
     private Character character;
     private boolean isWinner;
 
+    public Player() {
+    }
 
     public Player(String name, Character character) {
         this.name = name;

@@ -1,7 +1,16 @@
 package model;
 
 public enum TypeEnum {
-    FIRE, WATER, GRASS, ELECTRICY, WING, EARTH;
+    FIRE("Fire"), WATER("Water"), ELECTRICY("Electricity"), EARTH("Earth");
 
+    private String stringValue;
+
+    TypeEnum(String stringValue) {
+        this.stringValue = stringValue;
+    }
+
+    public String getStringValue() {
+        return stringValue;
+    }
 
 }

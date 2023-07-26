@@ -3,12 +3,13 @@ package model;
 public class SpecialPower {
     private String name;
     private int extraDamage;
+    private int originalExtraDamage;
     private int remainingRights;
 
-    public SpecialPower(String name, int extraDamage, int remainingRights) {
+    public SpecialPower(String name,int extraDamage, int remainingRights) {
         this.name = name;
-        this.extraDamage = extraDamage;
         this.remainingRights = remainingRights;
+        this.originalExtraDamage = extraDamage;
     }
 
     public String getName() {
@@ -33,6 +34,10 @@ public class SpecialPower {
 
     public void setRemainingRights(int remainingRights) {
         this.remainingRights = remainingRights;
+    }
+
+    public int getOriginalExtraDamage() {
+        return originalExtraDamage;
     }
 
     @Override
