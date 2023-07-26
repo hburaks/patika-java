@@ -120,6 +120,26 @@ public class User {
         }
         return obj;
     }
+    public static User getFetch(int id){
+        User obj = null;
+        String query = "SELECT * FROM \"user\" WHERE id = ?";
+        try {
+            PreparedStatement pr = DBConnector.getInstance().prepareStatement(query);
+            pr.setInt(1,id);
+            ResultSet rs = pr.executeQuery();
+            if (rs.next()){
+                obj = new User();
+                obj.setId((rs.getInt("id")));
+                obj.setName(rs.getString("name"));
+                obj.setUname(rs.getString("uname"));
+                obj.setPass(rs.getString("pass"));
+                obj.setType(rs.getString("user_type"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return obj;
+    }
 
     public static boolean delete(int userId) {
         User obj = null;
@@ -188,6 +208,7 @@ public class User {
 
 
     private static ArrayList<User> getUsers(String query) {
+
         ArrayList<User> userList = new ArrayList<>();
         User obj;
         try {
