@@ -23,5 +23,23 @@ public class Battle {
         pokemonService.decreaseSpecialPowerAccordingToWeather(pokemon2,weatherType);
     }
 
-    // TODO: reset special power after fight in battle service
+    public Pokemon getPokemon1() {
+        return pokemon1;
+    }
+
+    public Pokemon getPokemon2() {
+        return pokemon2;
+    }
+
+    public WeatherTypeEnum getWeatherType() {
+        return weatherType;
+    }
+
+    public Pokemon getWinner() {
+        return winner;
+    }
+
+    public void setWinner(Pokemon winner) {
+        this.winner = winner;
+    }
 }

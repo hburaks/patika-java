@@ -26,7 +26,6 @@ public enum WeatherTypeEnum {
         return stringValue;
     }
 
-
     public TypeEnum getCorrespondingPowerType() {
         return correspondingPowerType;
     }

@@ -1,13 +1,12 @@
 package service;
 
+import model.Battle;
 import model.Player;
 import model.Pokemon;
 
 public class GameService {
 
-    public void attack(Player attacker, Player defender, boolean isPokeSpecialAttack, boolean isCharSpecialAttack) {
-        Pokemon attackingPokemon = attacker.getCharacter().getPokemonList().get(0);
-        Pokemon defendingPokemon = defender.getCharacter().getPokemonList().get(0);
+    public void attack(Player attacker, Pokemon attackingPokemon, Player defender,Pokemon defendingPokemon, boolean isPokeSpecialAttack, boolean isCharSpecialAttack) {
 
         boolean specialAttack = false;
         if (isPokeSpecialAttack && isCharSpecialAttack) {
@@ -27,6 +26,7 @@ public class GameService {
                 damage += attackingPokemon.specialAttack();
                 damage += attacker.getCharacter().getSpecialPower().getExtraDamage();
                 attacker.getCharacter().getSpecialPower().setRemainingRights(charRemainingRights - 1);
+
             } else if (isPokeSpecialAttack) {
                 damage += attackingPokemon.specialAttack();
             } else {
@@ -36,12 +36,19 @@ public class GameService {
             }
         } else {
             if (isPokeSpecialAttack || isCharSpecialAttack) {
+                System.out.println("Oops! Attack missed. No special power left!");
                 damage = 0;
             } else {
                 damage += attackingPokemon.getDamage();
             }
         }
-        defendingPokemon.setHealth(defendingPokemon.getHealth() - damage);
+        if(defendingPokemon.getHealth() - damage < 0){
+            defendingPokemon.setHealth(0);
+        } else {
+            defendingPokemon.setHealth(defendingPokemon.getHealth() - damage);
+        }
+        System.out.println(attackingPokemon.getName() + " attacked with " + damage);
+        System.out.println(defendingPokemon.getName() + " has " + defendingPokemon.getHealth() + " health");
     }
 
     public boolean healthCheck(Player player){
@@ -56,7 +63,16 @@ public class GameService {
             return false;
         }
     }
+    public boolean healthCheckPokemon(Pokemon pokemon){
+        if(pokemon.getHealth() > 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-
-
+    public boolean isAnyPokemonDead(Battle battle){
+        GameService gameService = new GameService();
+       return !(gameService.healthCheckPokemon(battle.getPokemon1()) && gameService.healthCheckPokemon(battle.getPokemon2()));
+    }
 }

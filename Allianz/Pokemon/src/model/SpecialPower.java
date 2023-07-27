@@ -9,6 +9,7 @@ public class SpecialPower {
     public SpecialPower(String name,int extraDamage, int remainingRights) {
         this.name = name;
         this.remainingRights = remainingRights;
+        this.extraDamage = extraDamage;
         this.originalExtraDamage = extraDamage;
     }
 

@@ -3,6 +3,7 @@ package model;
 public class Pokemon {
     private String name;
     private int health;
+    private int originalHealth;
     private int damage;
     private TypeEnum type;
     private SpecialPower specialPower;
@@ -13,6 +14,7 @@ public class Pokemon {
         this.damage = damage;
         this.type = type;
         this.specialPower = specialPower;
+        this.originalHealth = health;
     }
 
     public String getName() {
@@ -63,6 +65,10 @@ public class Pokemon {
             System.out.println("You can not use special power!");
             return 0;
         }
+    }
+
+    public int getOriginalHealth() {
+        return originalHealth;
     }
 
     @Override

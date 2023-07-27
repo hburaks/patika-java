@@ -19,12 +19,13 @@ public class PlayerService {
     public void setPlayerName(Player player) {
         while (player.getName() == null) {
             System.out.print("Enter the player name: ");
-            String playerName = inp.nextLine();
+            String playerName = inp.next(); // Read a single word (string) from the user
             if (!playerName.trim().isEmpty()) {
                 player.setName(playerName);
             }
         }
     }
+
 
     public void addCharacterToPlayer(Player player, ArrayList<Character> characterList) {
         System.out.println("------ Characters ------");

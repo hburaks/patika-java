@@ -10,7 +10,6 @@ public class WeatherService {
         int weatherTypeIndex = Helper.createRandomNum(1, 4);
         if (weatherTypeIndex == 1) {
             weather = WeatherTypeEnum.RAINY;
-            System.out.println("Weather is Rainy. Bad for Electricity Powers.");
         } else if (weatherTypeIndex == 2) {
             weather = WeatherTypeEnum.HOT;
         } else if (weatherTypeIndex == 3) {
