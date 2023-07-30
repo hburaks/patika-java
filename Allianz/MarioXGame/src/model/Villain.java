@@ -5,15 +5,13 @@ public class Villain extends BaseCharacter {
     private boolean isMortal;
     private int health;
     private MoveTypeEnum moveTypeEnum;
-    private Coordinate coordinate;
 
     public Villain(String name, int damage, boolean isMortal, int health, MoveTypeEnum moveTypeEnum, Coordinate coordinate) {
-        super(name);
+        super(name, coordinate);
         this.damage = damage;
         this.isMortal = isMortal;
         this.health = health;
         this.moveTypeEnum = moveTypeEnum;
-        this.coordinate = coordinate;
     }
 
     public int getDamage() {
@@ -48,21 +46,15 @@ public class Villain extends BaseCharacter {
         this.moveTypeEnum = moveTypeEnum;
     }
 
-    public Coordinate getCoordinate() {
-        return coordinate;
-    }
-
-    public void setCoordinate(Coordinate coordinate) {
-        this.coordinate = coordinate;
-    }
 
     @Override
     public String toString() {
         return "Villain{" +
+                "name=" + super.getName() +
                 ", damage=" + damage +
                 ", isMortal=" + isMortal +
+                ", health=" + health +
                 ", moveTypeEnum=" + moveTypeEnum +
-                ", coordinate=" + coordinate +
                 '}';
     }
 }

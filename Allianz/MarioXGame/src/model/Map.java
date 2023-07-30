@@ -1,11 +1,13 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Map {
     private String name;
     private int xLength;
     private int yLength;
+    private ArrayList<Villain> villains = new ArrayList<>();
     private BaseCharacter[][] mapPlacement;
 
     public Map(String name, int xLength, int yLength) {
@@ -13,6 +15,15 @@ public class Map {
         this.xLength = xLength;
         this.yLength = yLength;
         mapPlacement = new BaseCharacter[yLength][xLength];
+
+    }
+
+    public ArrayList<Villain> getVillains() {
+        return villains;
+    }
+
+    public void setVillains(ArrayList<Villain> villains) {
+        this.villains = villains;
     }
 
     public String getName() {
@@ -23,19 +34,19 @@ public class Map {
         this.name = name;
     }
 
-    public int getxLength() {
+    public int getXLength() {
         return xLength;
     }
 
-    public void setxLength(int xLength) {
+    public void setXLength(int xLength) {
         this.xLength = xLength;
     }
 
-    public int getyLength() {
+    public int getYLength() {
         return yLength;
     }
 
-    public void setyLength(int yLength) {
+    public void setYLength(int yLength) {
         this.yLength = yLength;
     }
 

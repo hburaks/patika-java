@@ -7,18 +7,16 @@ public class MarioBaseCharacter extends BaseCharacter {
     private boolean immortality;
     private int remainingLife;
 
-    private Coordinate coordinate;
-
 
     public MarioBaseCharacter(String name, int health, GrowthCycleEnum growthCycleEnum, int length, boolean immortality, int remainingLife, Coordinate coordinate) {
-        super(name);
+        super(name, coordinate);
         this.health = health;
         this.growthCycleEnum = growthCycleEnum;
         this.length = length;
         this.immortality = immortality;
         this.remainingLife = remainingLife;
-        this.coordinate = coordinate;
     }
+
     public int getHealth() {
         return health;
     }
@@ -59,13 +57,6 @@ public class MarioBaseCharacter extends BaseCharacter {
         this.remainingLife = remainingLife;
     }
 
-    public Coordinate getCoordinate() {
-        return coordinate;
-    }
-
-    public void setCoordinate(Coordinate coordinate) {
-        this.coordinate = coordinate;
-    }
 
     @Override
     public String toString() {
