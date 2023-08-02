@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Java 102/AdventureGame/AdventureGame.iml" filepath="$PROJECT_DIR$/Java 102/AdventureGame/AdventureGame.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Allianz/Allianz.iml" filepath="$PROJECT_DIR$/Allianz/Allianz.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java 102/BookList/BookList.iml" filepath="$PROJECT_DIR$/Java 102/BookList/BookList.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java 102/BookSorter/BookSorter.iml" filepath="$PROJECT_DIR$/Java 102/BookSorter/BookSorter.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java 102/BoxingGame/BoxingGame.iml" filepath="$PROJECT_DIR$/Java 102/BoxingGame/BoxingGame.iml" />

@@ -350,5 +350,4 @@ public class OperatorGUI extends JFrame {
             }
         }
     }
-    // TODO: DELETE COURSE
 }
