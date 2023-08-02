@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/Allianz/Springboot/allianz-example" />
+    <file type="web" url="file://$PROJECT_DIR$/Allianz/SpringBoot/allianz-example" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -10,10 +10,12 @@
         <option value="$PROJECT_DIR$/Allianz/SpringBoot/allianz-example/pom.xml" />
         <option value="$PROJECT_DIR$/Allianz/Springboot/example/pom.xml" />
         <option value="$USER_HOME$/Documents/GitHub/AllianzJava/example/pom.xml" />
+        <option value="$PROJECT_DIR$/pokemon/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/Allianz/SpringBoot/example/pom.xml" />
         <option value="$PROJECT_DIR$/Allianz/Springboot/example/pom.xml" />
       </set>
     </option>

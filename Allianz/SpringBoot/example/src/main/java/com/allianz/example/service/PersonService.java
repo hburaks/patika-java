@@ -2,9 +2,7 @@ package com.allianz.example.service;
 
 import com.allianz.example.database.entity.PersonEntity;
 import com.allianz.example.database.repository.PersonEntityRepository;
-import com.allianz.example.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
