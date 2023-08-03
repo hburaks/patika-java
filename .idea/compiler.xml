@@ -15,13 +15,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="pokemon" />
         <module name="pokemon-dt" />
-        <module name="example" />
+        <module name="instructor-example" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="allianz-example" target="17" />
       <module name="allianz-example.main" target="17" />
       <module name="allianz-example.test" target="17" />
+      <module name="example" target="17" />
       <module name="pokemon" target="17" />
       <module name="pokemon-spring-boot" target="17" />
     </bytecodeTargetLevel>
@@ -30,6 +31,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="allianz-example" options="-parameters" />
       <module name="example" options="-parameters" />
+      <module name="instructor-example" options="-parameters" />
       <module name="pokemon" options="-parameters" />
       <module name="pokemon-dt" options="-parameters" />
       <module name="pokemon-spring-boot" options="-parameters" />

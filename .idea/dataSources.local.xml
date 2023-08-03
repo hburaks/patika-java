@@ -9,7 +9,9 @@
       <secret-storage>master_key</secret-storage>
       <schema-mapping>
         <introspection-scope>
-          <node kind="database" qname="pokemon">
+          <node kind="database">
+            <name qname="allianz" />
+            <name qname="pokemon" />
             <node kind="schema" negative="1" />
           </node>
         </introspection-scope>

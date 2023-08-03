@@ -15,12 +15,14 @@
         <option value="$PROJECT_DIR$/Allianz/pokemon/pom.xml" />
         <option value="$PROJECT_DIR$/Allianz/SpringBoot/pokemon-spring-boot/pom.xml" />
         <option value="$PROJECT_DIR$/spring-boot-projects/pokemon-dt/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-projects/instructor-example/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/Allianz/SpringBoot/pokemon-spring-boot/pom.xml" />
         <option value="$PROJECT_DIR$/Allianz/Springboot/example/pom.xml" />
+        <option value="$USER_HOME$/Documents/GitHub/AllianzJava/example/pom.xml" />
       </set>
     </option>
   </component>
