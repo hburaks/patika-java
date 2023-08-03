@@ -2,24 +2,28 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Java 102/AdventureGame/AdventureGame.iml" filepath="$PROJECT_DIR$/Java 102/AdventureGame/AdventureGame.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java 102/BookList/BookList.iml" filepath="$PROJECT_DIR$/Java 102/BookList/BookList.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java 102/BookSorter/BookSorter.iml" filepath="$PROJECT_DIR$/Java 102/BookSorter/BookSorter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java 102/BoxingGame/BoxingGame.iml" filepath="$PROJECT_DIR$/Java 102/BoxingGame/BoxingGame.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Allianz/DanceCourse/DanceCourse.iml" filepath="$PROJECT_DIR$/Allianz/DanceCourse/DanceCourse.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java 102/FixtureCreator/FixtureCreator.iml" filepath="$PROJECT_DIR$/Java 102/FixtureCreator/FixtureCreator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java 102/InsuranceAdminPanel/InsuranceAdminPanel.iml" filepath="$PROJECT_DIR$/Java 102/InsuranceAdminPanel/InsuranceAdminPanel.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Allianz/InsuranceAgency/InsuranceAgency.iml" filepath="$PROJECT_DIR$/Allianz/InsuranceAgency/InsuranceAgency.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java 101/Java 101.iml" filepath="$PROJECT_DIR$/Java 101/Java 101.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java 102/Java 102.iml" filepath="$PROJECT_DIR$/Java 102/Java 102.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Allianz/MarioXGame/MarioXGame.iml" filepath="$PROJECT_DIR$/Allianz/MarioXGame/MarioXGame.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Allianz/Movies/Movies.iml" filepath="$PROJECT_DIR$/Allianz/Movies/Movies.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java 102/PatikaClone/PatikaClone.iml" filepath="$PROJECT_DIR$/Java 102/PatikaClone/PatikaClone.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java 102/PatikaStore/PatikaStore.iml" filepath="$PROJECT_DIR$/Java 102/PatikaStore/PatikaStore.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Allianz/SportTeams/SportTeams.iml" filepath="$PROJECT_DIR$/Allianz/SportTeams/SportTeams.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java 102/StudentInformationSystem/StudentInformationSystem.iml" filepath="$PROJECT_DIR$/Java 102/StudentInformationSystem/StudentInformationSystem.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Allianz/TranscriptGenerationApplication/TranscriptGenerationApplication.iml" filepath="$PROJECT_DIR$/Allianz/TranscriptGenerationApplication/TranscriptGenerationApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patika-java-102/AdventureGame/AdventureGame.iml" filepath="$PROJECT_DIR$/patika-java-102/AdventureGame/AdventureGame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patika-java-102/BookList/BookList.iml" filepath="$PROJECT_DIR$/patika-java-102/BookList/BookList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patika-java-102/BookSorter/BookSorter.iml" filepath="$PROJECT_DIR$/patika-java-102/BookSorter/BookSorter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patika-java-102/BoxingGame/BoxingGame.iml" filepath="$PROJECT_DIR$/patika-java-102/BoxingGame/BoxingGame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/allianz-java/DanceCourse/DanceCourse.iml" filepath="$PROJECT_DIR$/allianz-java/DanceCourse/DanceCourse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patika-java-102/FixtureCreator/FixtureCreator.iml" filepath="$PROJECT_DIR$/patika-java-102/FixtureCreator/FixtureCreator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patika-java-102/InsuranceAdminPanel/InsuranceAdminPanel.iml" filepath="$PROJECT_DIR$/patika-java-102/InsuranceAdminPanel/InsuranceAdminPanel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/allianz-java/InsuranceAgency/InsuranceAgency.iml" filepath="$PROJECT_DIR$/allianz-java/InsuranceAgency/InsuranceAgency.iml" />
+      <module fileurl="file://$PROJECT_DIR$/allianz-java/MarioXGame/MarioXGame.iml" filepath="$PROJECT_DIR$/allianz-java/MarioXGame/MarioXGame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/allianz-java/Movies/Movies.iml" filepath="$PROJECT_DIR$/allianz-java/Movies/Movies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patika-java-102/PatikaClone/PatikaClone.iml" filepath="$PROJECT_DIR$/patika-java-102/PatikaClone/PatikaClone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patika-java-102/PatikaStore/PatikaStore.iml" filepath="$PROJECT_DIR$/patika-java-102/PatikaStore/PatikaStore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/allianz-java/SportTeams/SportTeams.iml" filepath="$PROJECT_DIR$/allianz-java/SportTeams/SportTeams.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patika-java-102/StudentInformationSystem/StudentInformationSystem.iml" filepath="$PROJECT_DIR$/patika-java-102/StudentInformationSystem/StudentInformationSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/allianz-java/TranscriptGenerationApplication/TranscriptGenerationApplication1.iml" filepath="$PROJECT_DIR$/allianz-java/TranscriptGenerationApplication/TranscriptGenerationApplication1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/allianz-java/allianz-java.iml" filepath="$PROJECT_DIR$/allianz-java/allianz-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/allianz-java/SpringBoot/example/src/main/main1.iml" filepath="$PROJECT_DIR$/allianz-java/SpringBoot/example/src/main/main1.iml" />
       <module fileurl="file://$PROJECT_DIR$/patika-java.iml" filepath="$PROJECT_DIR$/patika-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patika-java-101/patika-java-101.iml" filepath="$PROJECT_DIR$/patika-java-101/patika-java-101.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patika-java-102/patika-java-102.iml" filepath="$PROJECT_DIR$/patika-java-102/patika-java-102.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-projects/spring-boot-projects.iml" filepath="$PROJECT_DIR$/spring-boot-projects/spring-boot-projects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/allianz-java/SpringBoot/example/src/test/test1.iml" filepath="$PROJECT_DIR$/allianz-java/SpringBoot/example/src/test/test1.iml" />
     </modules>
   </component>
 </project>

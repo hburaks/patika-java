@@ -13,19 +13,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-      </profile>
-      <profile name="Annotation profile for example" enabled="true">
-        <sourceOutputDir name="../../../../../../../Documents/GitHub/AllianzJava/example/target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../../../../../../Documents/GitHub/AllianzJava/example/target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
+        <module name="pokemon" />
+        <module name="pokemon-dt" />
+        <module name="example" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="allianz-example" target="17" />
       <module name="allianz-example.main" target="17" />
       <module name="allianz-example.test" target="17" />
-      <module name="example" target="17" />
       <module name="pokemon" target="17" />
+      <module name="pokemon-spring-boot" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -33,6 +31,8 @@
       <module name="allianz-example" options="-parameters" />
       <module name="example" options="-parameters" />
       <module name="pokemon" options="-parameters" />
+      <module name="pokemon-dt" options="-parameters" />
+      <module name="pokemon-spring-boot" options="-parameters" />
     </option>
   </component>
 </project>

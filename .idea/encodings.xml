@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/Allianz/SpringBoot/example/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Allianz/SpringBoot/pokemon/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Allianz/Springboot/allianz-example/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/allianz-java/SpringBoot/allianz-example/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/allianz-java/SpringBoot/example/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/allianz-java/SpringBoot/pokemon-spring-boot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/allianz-java/pokemon/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pokemon/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pokemon/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-projects/pokemon-dt/src/main/java" charset="UTF-8" />
     <file url="file://$USER_HOME$/Documents/GitHub/AllianzJava/example/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Documents/GitHub/AllianzJava/example/src/main/resources" charset="UTF-8" />
   </component>
 </project>
