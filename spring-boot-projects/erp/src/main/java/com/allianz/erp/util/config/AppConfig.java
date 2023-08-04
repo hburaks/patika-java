@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 @Getter @Setter
 @Configuration
 public class AppConfig {
-
     @Value("${tax.rate}")
     private double taxRate;
 }

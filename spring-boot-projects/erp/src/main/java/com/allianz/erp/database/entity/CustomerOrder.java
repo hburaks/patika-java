@@ -15,7 +15,10 @@ public class CustomerOrder extends BaseEntity {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @OneToMany(mappedBy = "")
+    @OneToMany(mappedBy = "customerOrder")
     private List<OrderItem> orderItemList;
+
+    @OneToOne(mappedBy = "customerOrder")
+    private Bill bill;
 
 }

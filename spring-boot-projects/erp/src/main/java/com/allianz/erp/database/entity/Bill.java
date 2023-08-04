@@ -11,8 +11,7 @@ import java.util.List;
 @Entity
 @Data
 public class Bill extends BaseEntity {
-    @OneToOne
-    private CustomerOrder customerOrder;
+
 
     @ManyToOne
     private Customer customer;

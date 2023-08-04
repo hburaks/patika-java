@@ -36,8 +36,4 @@ public class Product extends BaseEntity {
     @Column
     private BigDecimal taxAppliedPrice;
 
-
-    // TODO: throw exception if the tax ratio is bigger than 1;
-    // TODO: Get ile alırken kdv ye göre fiyatı güncelle
-
 }

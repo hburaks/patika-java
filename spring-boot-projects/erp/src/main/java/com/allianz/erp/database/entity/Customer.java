@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 @Data
 public class Customer extends BaseEntity {
+
     @Column
     private String name;
 
