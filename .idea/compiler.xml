@@ -13,9 +13,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="instructor-example" />
+        <module name="erp" />
         <module name="pokemon" />
         <module name="pokemon-dt" />
-        <module name="instructor-example" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -30,6 +31,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="allianz-example" options="-parameters" />
+      <module name="erp" options="-parameters" />
       <module name="example" options="-parameters" />
       <module name="instructor-example" options="-parameters" />
       <module name="pokemon" options="-parameters" />
