@@ -16,4 +16,8 @@ public class ConfigService {
         return price.add(taxAmount);
     }
 
+    public BigDecimal calculateTaxAmount(BigDecimal price){
+        return price.multiply(BigDecimal.valueOf(appConfig.getTaxRate()));
+    }
+
 }

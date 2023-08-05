@@ -58,7 +58,7 @@ public class ProductService {
     }
 
     public void updateProductPrice(Long productId, BigDecimal price) {
-        productRepository.updateProductPrice(productId,price);
+        productRepository.updateProductPrice(price,productId);
     }
 
 
@@ -114,5 +114,6 @@ public class ProductService {
         }
         return false;
     }
+
 
 }

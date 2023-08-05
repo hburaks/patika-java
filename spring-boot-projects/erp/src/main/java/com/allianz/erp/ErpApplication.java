@@ -13,6 +13,5 @@ public class ErpApplication {
 }
 
 //TODO ortak repo interface sorulacak
-//TODO update metodu sorulacak???
-
+//TODO update stock api gerekli mi serviste kalsa yeterli mi?
 //TODO @Autowired doğrusu nedir? Ayağa kalkarken set veya constructor hangisi çalışır?

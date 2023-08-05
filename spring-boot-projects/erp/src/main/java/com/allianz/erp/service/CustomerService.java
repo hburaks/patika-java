@@ -17,6 +17,12 @@ public class CustomerService {
     @Autowired
     CustomerRepository customerRepository;
 
+    @Autowired
+    CustomerOrderService customerOrderService;
+
+    @Autowired
+    BillService billService;
+
     public List<Customer> getAllCustomers() {
         return customerRepository.findAll();
     }
@@ -85,8 +91,9 @@ public class CustomerService {
 
         if (customerOrderOptional.isPresent()) {
             return customerOrderOptional.get();
+        } else {
+            throw new IllegalArgumentException("The customer order does not exist for this customer!");
         }
-        return null;
     }
 
     public Customer addBillToCustomer(Bill bill, Customer customer) {
@@ -117,21 +124,16 @@ public class CustomerService {
         return customer;
     }
 
-    //TODO customerorderservice
-    public Customer turnOrderToBill(CustomerOrder customerOrder, Customer customer) {
+    public Customer turnCustomerOrderToBill(Long customerOrderId, Long customerId) {
+        Customer customer = getCustomerById(customerId);
         if (customer.getCustomerOrderList() != null) {
-            for (int i = 0; i < customerOrder.getOrderItemList().size(); i++) {
-                if (customer.getCustomerOrderList().get(i).getId().equals(customerOrder.getId())) {
-                    CustomerOrder orderConvertingToBill = customer.getCustomerOrderList().get(i);
-                    Bill bill = new Bill();
-                    bill.setCustomer(orderConvertingToBill.getCustomer());
-                    bill.setOrderItemList(orderConvertingToBill.getOrderItemList());
-
-                    break;
-                } else {
-                    throw new IllegalArgumentException("The customer order does not exist for this customer!");
-                }
+            CustomerOrder customerOrder = findCustomerOrderFromCustomerWithId(customer, customerOrderId);
+            customerOrderService.approveOrdersStatusIfPossible(customerOrder);
+            Bill bill = billService.createBillWithApprovedOrderItems(customerOrder);
+            if (customer.getBillList() == null) {
+                customer.setBillList(new ArrayList<Bill>());
             }
+            customer.getBillList().add(bill);
         } else {
             throw new IllegalArgumentException("There is no customer order in this customer!");
         }

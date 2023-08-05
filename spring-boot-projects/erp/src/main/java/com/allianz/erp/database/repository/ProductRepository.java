@@ -13,7 +13,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
 
     @Modifying
-    @Query("UPDATE Product p SET p.price = :price WHERE p.id = :productId")
-    int updateProductPrice(Long productId, BigDecimal price);
+    @Query("UPDATE Product p SET p.price = ?1 WHERE p.id = ?2")
+    void updateProductPrice(BigDecimal price, Long productId);
 }
 

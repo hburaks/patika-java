@@ -3,6 +3,7 @@ package com.allianz.erp.controller;
 import com.allianz.erp.database.entity.Bill;
 import com.allianz.erp.database.entity.Customer;
 import com.allianz.erp.database.entity.CustomerOrder;
+import com.allianz.erp.service.CustomerOrderService;
 import com.allianz.erp.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,9 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
+    @Autowired
+    CustomerOrderService customerOrderService;
+
     @GetMapping
     public ResponseEntity<List<Customer>> getCustomerList() {
         return new ResponseEntity<>(customerService.getAllCustomers(), HttpStatus.OK);
@@ -25,6 +29,11 @@ public class CustomerController {
     @GetMapping("{id}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable Long id) {
         return new ResponseEntity<>(customerService.getCustomerById(id), HttpStatus.OK);
+    }
+
+    @GetMapping("bill-list/{customerId}")
+    public ResponseEntity<List<Bill>> getCustomerBillListByCustomerId(@PathVariable Long customerId) {
+        return new ResponseEntity<>(customerService.getCustomerById(customerId).getBillList(), HttpStatus.OK);
     }
 
     @PostMapping
@@ -66,6 +75,7 @@ public class CustomerController {
             Customer customer = response.getBody();
             CustomerOrder customerOrder = customerService.findCustomerOrderFromCustomerWithId(customer, customerId);
             customerService.subtractCustomerOrderFromCustomer(customerOrder, customer);
+            customerOrderService.removeCustomerOrderWithId(customerOrder.getId());
             return new ResponseEntity<>(customer, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -78,7 +88,6 @@ public class CustomerController {
         if (response.getStatusCode() == HttpStatus.OK) {
             Customer customer = response.getBody();
             customerService.addBillToCustomer(bill, customer);
-
             return new ResponseEntity<>(customer, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -96,6 +105,12 @@ public class CustomerController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @PutMapping("turn-to-bill/{customerOrderId}/id/{id}")
+    public ResponseEntity<Customer> turnCustomerOrderToBill(@PathVariable Long customerOrderId, @PathVariable Long id) {
+        Customer customer = customerService.turnCustomerOrderToBill(customerOrderId, id);
+        return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
 }

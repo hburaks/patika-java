@@ -27,6 +27,11 @@ public class ProductController {
         return new ResponseEntity<>(productService.getProductById(id), HttpStatus.OK);
     }
 
+    @GetMapping("/stock/{id}")
+    public ResponseEntity<Integer> getProductStockById(@PathVariable Long id) {
+        return new ResponseEntity<>(productService.getProductById(id).getStock(), HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         return new ResponseEntity<>(productService.createProduct(product.getName(), product.getStock(), product.getInfo(), product.getPrice()), HttpStatus.OK);
