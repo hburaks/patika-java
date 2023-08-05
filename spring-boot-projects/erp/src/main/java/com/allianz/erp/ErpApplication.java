@@ -13,4 +13,6 @@ public class ErpApplication {
 }
 
 //TODO ortak repo interface sorulacak
-//TODO update metodu sorulacak
+//TODO update metodu sorulacak???
+
+//TODO @Autowired doğrusu nedir? Ayağa kalkarken set veya constructor hangisi çalışır?

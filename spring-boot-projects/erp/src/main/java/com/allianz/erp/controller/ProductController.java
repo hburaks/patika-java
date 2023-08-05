@@ -22,17 +22,17 @@ public class ProductController {
         return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
     }
 
-    @GetMapping("product/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {
         return new ResponseEntity<>(productService.getProductById(id), HttpStatus.OK);
     }
 
-    @PostMapping("product")
+    @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         return new ResponseEntity<>(productService.createProduct(product.getName(), product.getStock(), product.getInfo(), product.getPrice()), HttpStatus.OK);
     }
 
-    @PutMapping("product/update/name/{id}")
+    @PutMapping("update/name/{id}")
     public ResponseEntity<Product> updateProductName(@RequestBody String name, @PathVariable Long id) {
         ResponseEntity<Product> response = getProductById(id);
         if (response.getStatusCode() == HttpStatus.OK) {
@@ -45,7 +45,7 @@ public class ProductController {
         }
     }
 
-    @PutMapping("product/update/info/{id}")
+    @PutMapping("update/info/{id}")
     public ResponseEntity<Product> updateProductInfo(@RequestBody String info, @PathVariable Long id) {
         ResponseEntity<Product> response = getProductById(id);
         if (response.getStatusCode() == HttpStatus.OK) {
@@ -58,7 +58,7 @@ public class ProductController {
         }
     }
 
-    @PutMapping("product/update/stock/{id}")
+    @PutMapping("update/stock/{id}")
     public ResponseEntity<Product> updateProductStock(@RequestBody int stock, @PathVariable Long id) {
         ResponseEntity<Product> response = getProductById(id);
         if (response.getStatusCode() == HttpStatus.OK) {
@@ -71,21 +71,20 @@ public class ProductController {
         }
     }
 
-    @PutMapping("product/update/price/{price}")
-    public ResponseEntity<Product> updateProductStock(@RequestBody BigDecimal price, @PathVariable Long id) {
+    @PutMapping("update/price/{price}/id/{id}")
+    public ResponseEntity<Product> updateProductPrice(@PathVariable Long id, @PathVariable BigDecimal price) {
         ResponseEntity<Product> response = getProductById(id);
         if (response.getStatusCode() == HttpStatus.OK) {
             Product product = response.getBody();
-            productService.updateProductPrice(price, product);
-
+            productService.updateProductPrice(id, price);
             return new ResponseEntity<>(product, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
-    @PutMapping("product/add/stock/{stock}")
-    public ResponseEntity<Product> addStockToProduct(@RequestBody int stock, @PathVariable Long id) {
+    @PutMapping("add/stock/{stock}/id/{id}")
+    public ResponseEntity<Product> addStockToProduct(@PathVariable int stock, @PathVariable Long id) {
         ResponseEntity<Product> response = getProductById(id);
         if (response.getStatusCode() == HttpStatus.OK) {
             Product product = response.getBody();
@@ -97,8 +96,8 @@ public class ProductController {
         }
     }
 
-    @PutMapping("product/subtract/stock/{stock}")
-    public ResponseEntity<Product> subtractStockFromProduct(@RequestBody int stock, @PathVariable Long id) {
+    @PutMapping("subtract/stock/{stock}/id/{id}")
+    public ResponseEntity<Product> subtractStockFromProduct(@PathVariable int stock, @PathVariable Long id) {
         ResponseEntity<Product> response = getProductById(id);
         if (response.getStatusCode() == HttpStatus.OK) {
             Product product = response.getBody();
@@ -110,7 +109,7 @@ public class ProductController {
         }
     }
 
-    @DeleteMapping("/product/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<String> removeProduct(@PathVariable Long id) {
         boolean removed = productService.removeProduct(id);
         if (removed) {

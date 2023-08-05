@@ -57,12 +57,11 @@ public class ProductService {
         return product;
     }
 
-    public Product updateProductPrice(BigDecimal price, Product product) {
-        product.setPrice(price);
-        productRepository.save(product);
-
-        return product;
+    public void updateProductPrice(Long productId, BigDecimal price) {
+        productRepository.updateProductPrice(productId,price);
     }
+
+
 
     @Transactional
     public Product updateProductStock(int stock, Product product) {
