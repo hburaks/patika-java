@@ -1,6 +1,6 @@
 package com.allianz.erp.controller;
 
-import com.allianz.erp.database.entity.Bill;
+import com.allianz.erp.entity.Bill;
 import com.allianz.erp.service.BillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

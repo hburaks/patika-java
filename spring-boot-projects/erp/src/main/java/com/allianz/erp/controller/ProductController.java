@@ -1,6 +1,6 @@
 package com.allianz.erp.controller;
 
-import com.allianz.erp.database.entity.Product;
+import com.allianz.erp.entity.Product;
 import com.allianz.erp.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

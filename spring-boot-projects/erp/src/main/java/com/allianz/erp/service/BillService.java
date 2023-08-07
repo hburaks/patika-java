@@ -1,9 +1,9 @@
 package com.allianz.erp.service;
 
-import com.allianz.erp.database.entity.Bill;
-import com.allianz.erp.database.entity.CustomerOrder;
-import com.allianz.erp.database.entity.OrderItem;
-import com.allianz.erp.database.repository.BillRepository;
+import com.allianz.erp.entity.Bill;
+import com.allianz.erp.entity.CustomerOrder;
+import com.allianz.erp.entity.OrderItem;
+import com.allianz.erp.repository.BillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +32,6 @@ public class BillService {
     }
 
     public Bill getBillById(Long billId) {
-        return billRepository.getReferenceById(billId);
+       return billRepository.getReferenceById(billId);
     }
 }

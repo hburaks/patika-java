@@ -1,8 +1,8 @@
 package com.allianz.erp.controller;
 
-import com.allianz.erp.database.entity.Bill;
-import com.allianz.erp.database.entity.Customer;
-import com.allianz.erp.database.entity.CustomerOrder;
+import com.allianz.erp.entity.Bill;
+import com.allianz.erp.entity.Customer;
+import com.allianz.erp.entity.CustomerOrder;
 import com.allianz.erp.service.CustomerOrderService;
 import com.allianz.erp.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;

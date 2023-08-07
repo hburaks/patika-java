@@ -1,6 +1,6 @@
 package com.allianz.erp.controller;
 
-import com.allianz.erp.database.entity.OrderItem;
+import com.allianz.erp.entity.OrderItem;
 import com.allianz.erp.model.OrderItemStatusTypeEnum;
 import com.allianz.erp.service.OrderItemService;
 import org.springframework.beans.factory.annotation.Autowired;

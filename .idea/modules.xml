@@ -18,12 +18,10 @@
       <module fileurl="file://$PROJECT_DIR$/patika-java-102/StudentInformationSystem/StudentInformationSystem.iml" filepath="$PROJECT_DIR$/patika-java-102/StudentInformationSystem/StudentInformationSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/allianz-java/TranscriptGenerationApplication/TranscriptGenerationApplication1.iml" filepath="$PROJECT_DIR$/allianz-java/TranscriptGenerationApplication/TranscriptGenerationApplication1.iml" />
       <module fileurl="file://$PROJECT_DIR$/allianz-java/allianz-java.iml" filepath="$PROJECT_DIR$/allianz-java/allianz-java.iml" />
-      <module fileurl="file://$PROJECT_DIR$/allianz-java/SpringBoot/example/src/main/main1.iml" filepath="$PROJECT_DIR$/allianz-java/SpringBoot/example/src/main/main1.iml" />
       <module fileurl="file://$PROJECT_DIR$/patika-java.iml" filepath="$PROJECT_DIR$/patika-java.iml" />
       <module fileurl="file://$PROJECT_DIR$/patika-java-101/patika-java-101.iml" filepath="$PROJECT_DIR$/patika-java-101/patika-java-101.iml" />
       <module fileurl="file://$PROJECT_DIR$/patika-java-102/patika-java-102.iml" filepath="$PROJECT_DIR$/patika-java-102/patika-java-102.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-projects/spring-boot-projects.iml" filepath="$PROJECT_DIR$/spring-boot-projects/spring-boot-projects.iml" />
-      <module fileurl="file://$PROJECT_DIR$/allianz-java/SpringBoot/example/src/test/test1.iml" filepath="$PROJECT_DIR$/allianz-java/SpringBoot/example/src/test/test1.iml" />
     </modules>
   </component>
 </project>

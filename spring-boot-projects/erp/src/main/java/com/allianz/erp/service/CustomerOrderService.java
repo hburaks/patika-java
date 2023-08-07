@@ -1,12 +1,12 @@
 package com.allianz.erp.service;
 
-import com.allianz.erp.database.entity.Customer;
-import com.allianz.erp.database.entity.CustomerOrder;
-import com.allianz.erp.database.entity.OrderItem;
-import com.allianz.erp.database.entity.Product;
-import com.allianz.erp.database.repository.CustomerOrderRepository;
-import com.allianz.erp.database.repository.OrderItemRepository;
+import com.allianz.erp.entity.Customer;
+import com.allianz.erp.entity.CustomerOrder;
+import com.allianz.erp.entity.OrderItem;
+import com.allianz.erp.entity.Product;
 import com.allianz.erp.model.OrderItemStatusTypeEnum;
+import com.allianz.erp.repository.CustomerOrderRepository;
+import com.allianz.erp.repository.OrderItemRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,6 @@ public class CustomerOrderService {
 
     @Autowired
     ProductService productService;
-
     @Autowired
     OrderItemRepository orderItemRepository;
 

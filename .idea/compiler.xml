@@ -17,6 +17,7 @@
         <module name="erp" />
         <module name="pokemon" />
         <module name="pokemon-dt" />
+        <module name="generic-erp-crud" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -33,6 +34,7 @@
       <module name="allianz-example" options="-parameters" />
       <module name="erp" options="-parameters" />
       <module name="example" options="-parameters" />
+      <module name="generic-erp-crud" options="-parameters" />
       <module name="instructor-example" options="-parameters" />
       <module name="pokemon" options="-parameters" />
       <module name="pokemon-dt" options="-parameters" />

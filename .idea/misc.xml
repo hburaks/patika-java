@@ -17,6 +17,7 @@
         <option value="$PROJECT_DIR$/spring-boot-projects/pokemon-dt/pom.xml" />
         <option value="$PROJECT_DIR$/spring-boot-projects/instructor-example/pom.xml" />
         <option value="$PROJECT_DIR$/spring-boot-projects/erp/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-projects/generic-erp-crud/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

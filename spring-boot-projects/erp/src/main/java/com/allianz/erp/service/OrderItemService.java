@@ -1,10 +1,10 @@
 package com.allianz.erp.service;
 
-import com.allianz.erp.database.entity.CustomerOrder;
-import com.allianz.erp.database.entity.OrderItem;
-import com.allianz.erp.database.entity.Product;
-import com.allianz.erp.database.repository.OrderItemRepository;
+import com.allianz.erp.entity.CustomerOrder;
+import com.allianz.erp.entity.OrderItem;
+import com.allianz.erp.entity.Product;
 import com.allianz.erp.model.OrderItemStatusTypeEnum;
+import com.allianz.erp.repository.OrderItemRepository;
 import com.allianz.erp.util.config.ConfigService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,6 @@ public class OrderItemService {
 
     @Autowired
     ConfigService configService;
-
     @Autowired
     OrderItemRepository orderItemRepository;
 
@@ -85,12 +84,11 @@ public class OrderItemService {
     }
 
     @Transactional
-    public OrderItem updateOrderItemStatus(Long id, OrderItemStatusTypeEnum orderItemStatusTypeEnum){
+    public OrderItem updateOrderItemStatus(Long id, OrderItemStatusTypeEnum orderItemStatusTypeEnum) {
         OrderItem orderItem = getOrderItemById(id);
         orderItem.setOrderItemStatusTypeEnum(orderItemStatusTypeEnum);
         return orderItem;
     }
-
 
 
 }

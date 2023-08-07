@@ -1,9 +1,9 @@
 package com.allianz.erp.service;
 
-import com.allianz.erp.database.entity.Bill;
-import com.allianz.erp.database.entity.Customer;
-import com.allianz.erp.database.entity.CustomerOrder;
-import com.allianz.erp.database.repository.CustomerRepository;
+import com.allianz.erp.entity.Bill;
+import com.allianz.erp.entity.Customer;
+import com.allianz.erp.entity.CustomerOrder;
+import com.allianz.erp.repository.CustomerRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

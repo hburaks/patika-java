@@ -1,7 +1,7 @@
 package com.allianz.erp.service;
 
-import com.allianz.erp.database.entity.Product;
-import com.allianz.erp.database.repository.ProductRepository;
+import com.allianz.erp.entity.Product;
+import com.allianz.erp.repository.ProductRepository;
 import com.allianz.erp.util.config.ConfigService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,6 @@ import java.util.Optional;
 
 @Service
 public class ProductService {
-
     @Autowired
     ProductRepository productRepository;
 
