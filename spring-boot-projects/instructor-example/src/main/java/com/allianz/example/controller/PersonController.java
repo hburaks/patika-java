@@ -2,35 +2,23 @@ package com.allianz.example.controller;
 
 import com.allianz.example.database.entity.PersonEntity;
 import com.allianz.example.model.PersonDTO;
+import com.allianz.example.model.requestDTO.PersonRequestDTO;
 import com.allianz.example.service.PersonService;
+import com.allianz.example.util.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("PersonDTO")
-public class PersonController {
-
-
-    //endpoint->son nokta-bitis noktası
-
-    //localhost:8080/example
+public class PersonController extends BaseController<PersonEntity> {
 
     @Autowired
     PersonService personService;
-
-
-    @GetMapping("hello-world")
-    public ResponseEntity<String> helloWorldApi() {
-
-
-        return new ResponseEntity<>("Hello World", HttpStatus.OK);
-    }
 
 
     @GetMapping("PersonDTO")
@@ -45,8 +33,6 @@ public class PersonController {
         return new ResponseEntity<>(PersonDTO, HttpStatus.OK);
     }
 
-
-    //pathVariable localhost:8080/PersonDTO/12
 
 
     @GetMapping("PersonDTO/{PersonDTOId}")
@@ -69,60 +55,10 @@ public class PersonController {
     }
 
 
-    @GetMapping("PersonDTO-list")
-    public ResponseEntity<List<PersonDTO>> getPersonDTOList() {
-
-        List<PersonDTO> list = new ArrayList<>();
-
-        PersonDTO PersonDTO = new PersonDTO();
-        PersonDTO.setName("Furkan");
-        PersonDTO.setSurname("Yalçındağ");
-        PersonDTO.setBirthYear(1992);
-        PersonDTO.setTc("kosdkshdjks");
-
-        list.add(PersonDTO);
-
-        PersonDTO PersonDTO2 = new PersonDTO();
-        PersonDTO2.setName("Gizem");
-        PersonDTO2.setSurname("Kısa");
-        PersonDTO2.setBirthYear(1992);
-        PersonDTO2.setTc("jkfdkjghjkdfhgd");
-
-        list.add(PersonDTO2);
-
-        return new ResponseEntity<>(list, HttpStatus.OK);
-    }
-
-
-    @GetMapping("PersonDTO-by-request-param")
-    public ResponseEntity<PersonDTO> PersonDTOGetByPersonDTOIdRequestParamApi(@RequestParam int PersonDTOId, @RequestParam String tc) {
-
-        System.out.println(tc);
-        PersonDTO PersonDTO = new PersonDTO();
-        if (PersonDTOId == 1) {
-            PersonDTO.setName("Furkan");
-            PersonDTO.setSurname("Yalçındağ");
-            PersonDTO.setBirthYear(1992);
-            PersonDTO.setTc("kosdkshdjks");
-        } else {
-            PersonDTO.setName("Gizem");
-            PersonDTO.setSurname("Kısa");
-            PersonDTO.setBirthYear(1992);
-            PersonDTO.setTc("jkfdkjghjkdfhgd");
-        }
-
-
-        return new ResponseEntity<>(PersonDTO, HttpStatus.OK);
-    }
 
     @PostMapping("PersonDTO")
-    public ResponseEntity<PersonEntity> createPersonDTO(@RequestBody PersonDTO PersonDTO) throws Exception {
-
-        PersonEntity PersonDTO1 = personService.createPerson(PersonDTO.getName(), PersonDTO.getSurname(),
-                PersonDTO.getTc(), PersonDTO.getBirthYear());
-
-        //throw new Exception("slşdkaslşdkşlaskdas");
-
+    public ResponseEntity<PersonRequestDTO> createPersonDTO(@RequestBody PersonRequestDTO personDTO) throws Exception {
+        PersonRequestDTO PersonDTO1 = personService.createPerson(personDTO);
         return new ResponseEntity<>(PersonDTO1, HttpStatus.CREATED);
     }
 
@@ -146,7 +82,7 @@ public class PersonController {
 
 
     @GetMapping("PersonDTO-list-by-name-i-contains/{key}")
-    public ResponseEntity<List<PersonEntity>> getPersonDTOListByNameICOntains(@PathVariable String key) {
+    public ResponseEntity<List<PersonEntity>> getPersonDTOListByNameIContains(@PathVariable String key) {
         return new ResponseEntity<>(personService.getPersonNameIContains(key), HttpStatus.OK);
     }
 

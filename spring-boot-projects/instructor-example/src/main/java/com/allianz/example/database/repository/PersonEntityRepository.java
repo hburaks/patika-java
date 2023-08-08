@@ -1,7 +1,7 @@
 package com.allianz.example.database.repository;
 
 import com.allianz.example.database.entity.PersonEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.allianz.example.util.dbutil.BaseRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -11,7 +11,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface PersonEntityRepository extends JpaRepository<PersonEntity, Long> {
+public interface PersonEntityRepository extends BaseRepository<PersonEntity> {
 
     List<PersonEntity> findAllByNameStartingWith(String key);
 

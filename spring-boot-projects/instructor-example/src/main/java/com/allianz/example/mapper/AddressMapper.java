@@ -3,14 +3,14 @@ package com.allianz.example.mapper;
 import com.allianz.example.database.entity.AddressEntity;
 import com.allianz.example.model.AddressDTO;
 import com.allianz.example.model.requestDTO.AddressRequestDTO;
-import com.allianz.example.util.IBaseMapper;
+import com.allianz.example.util.BaseDTO;
+import com.allianz.example.util.BaseMapper;
+import lombok.Builder;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Component
-public class AddressMapper implements IBaseMapper<AddressDTO, AddressEntity, AddressRequestDTO> {
+@Builder
+public class AddressMapper extends BaseMapper<AddressDTO, AddressEntity, AddressRequestDTO, BaseDTO> {
     @Override
     public AddressDTO entityToDTO(AddressEntity entity) {
         AddressDTO addressDTO = new AddressDTO();
@@ -27,23 +27,11 @@ public class AddressMapper implements IBaseMapper<AddressDTO, AddressEntity, Add
 
     @Override
     public AddressEntity dtoToEntity(AddressDTO dto) {
-        return null;
-    }
-
-    @Override
-    public List<AddressDTO> entityListToDTOList(List<AddressEntity> addressEntities) {
-        List<AddressDTO> addressDTOList = new ArrayList<>();
-
-        for (AddressEntity addressEntity:addressEntities) {
-            addressDTOList.add(entityToDTO(addressEntity));
-        }
-        
-        return addressDTOList;
-    }
-
-    @Override
-    public List<AddressEntity> dtoListTOEntityList(List<AddressDTO> addressDTOS) {
-        return null;
+        AddressEntity addressEntity = AddressEntity.builder()
+                .address(dto.getAddress())
+                .title(dto.getTitle())
+                .build();
+        return addressEntity;
     }
 
     @Override
@@ -58,7 +46,8 @@ public class AddressMapper implements IBaseMapper<AddressDTO, AddressEntity, Add
         return entity;
     }
 
-
-
-
+    @Override
+    public BaseDTO entityToResponseDTO(AddressEntity entity) {
+        return null;
+    }
 }

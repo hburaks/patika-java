@@ -15,9 +15,6 @@ public class PersonDTO extends BaseDTO {
     private List<AddressDTO> addressList;
 
 
-
-
-
 }
 
 

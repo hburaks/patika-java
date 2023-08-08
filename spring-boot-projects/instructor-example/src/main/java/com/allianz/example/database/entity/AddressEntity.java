@@ -2,7 +2,10 @@ package com.allianz.example.database.entity;
 
 import com.allianz.example.util.dbutil.BaseEntity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Table
 @Entity
@@ -13,6 +16,9 @@ import lombok.Data;
         )
 )
 @Data
+@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class AddressEntity extends BaseEntity {
 
     @Column
@@ -23,5 +29,6 @@ public class AddressEntity extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private PersonEntity person;
+
 
 }

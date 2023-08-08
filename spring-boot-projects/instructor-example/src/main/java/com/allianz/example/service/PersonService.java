@@ -1,9 +1,12 @@
 package com.allianz.example.service;
 
+import com.allianz.example.database.entity.AddressEntity;
 import com.allianz.example.database.entity.PersonEntity;
 import com.allianz.example.database.repository.PersonEntityRepository;
+import com.allianz.example.mapper.PersonMapper;
+import com.allianz.example.model.requestDTO.PersonRequestDTO;
+import com.allianz.example.util.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,29 +16,20 @@ import java.util.UUID;
 
 //bean
 @Service
-public class PersonService {
+public class PersonService extends BaseService<PersonEntity> {
 
-
-    @Value("${gizem:25}")
-    int value;
 
     @Autowired
     PersonEntityRepository personEntityRepository;
 
-    public PersonEntity createPerson(String name, String surname, String tc, int birthYear) {
-        PersonEntity person = new PersonEntity();
-        person.setTc(tc);
-        person.setName(name);
-        person.setSurname(surname);
-        person.setBirthYear(birthYear);
+    @Autowired
+    PersonMapper personMapper;
 
+    public PersonRequestDTO createPerson(PersonRequestDTO personRequestDTO) {
 
-        personEntityRepository.save(person);
-
-
-        System.out.println(value);
-
-        return person;
+        PersonEntity personEntity = personMapper.requestDTOToEntity(personRequestDTO);
+        personEntityRepository.save(personEntity);
+        return personRequestDTO;
     }
 
 
@@ -46,6 +40,8 @@ public class PersonService {
     }
 
     public List<PersonEntity> getPersonNameIContains(String key) {
+
+
 
 
         return personEntityRepository.findAllByNameContainsIgnoreCase(key);
@@ -110,4 +106,9 @@ public class PersonService {
     }
 
 
+    public void addAddressToPerson(Optional<PersonEntity> personEntity, AddressEntity addressEntity) {
+        if(personEntity.isPresent()){
+            personEntity.get().getAddressEntityList().add(addressEntity);
+        }
+    }
 }
