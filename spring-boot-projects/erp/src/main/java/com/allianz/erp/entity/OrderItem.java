@@ -23,6 +23,7 @@ public class OrderItem extends BaseEntity {
     private CustomerOrder customerOrder;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private OrderItemStatusTypeEnum orderItemStatusTypeEnum;
 
     @Column

@@ -18,6 +18,8 @@
       <module fileurl="file://$PROJECT_DIR$/patika-java-102/StudentInformationSystem/StudentInformationSystem.iml" filepath="$PROJECT_DIR$/patika-java-102/StudentInformationSystem/StudentInformationSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/allianz-java/TranscriptGenerationApplication/TranscriptGenerationApplication1.iml" filepath="$PROJECT_DIR$/allianz-java/TranscriptGenerationApplication/TranscriptGenerationApplication1.iml" />
       <module fileurl="file://$PROJECT_DIR$/allianz-java/allianz-java.iml" filepath="$PROJECT_DIR$/allianz-java/allianz-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-projects/generic-erp-crud/generic-erp-crud.iml" filepath="$PROJECT_DIR$/spring-boot-projects/generic-erp-crud/generic-erp-crud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-projects/instructor-example/instructor-example.iml" filepath="$PROJECT_DIR$/spring-boot-projects/instructor-example/instructor-example.iml" />
       <module fileurl="file://$PROJECT_DIR$/patika-java.iml" filepath="$PROJECT_DIR$/patika-java.iml" />
       <module fileurl="file://$PROJECT_DIR$/patika-java-101/patika-java-101.iml" filepath="$PROJECT_DIR$/patika-java-101/patika-java-101.iml" />
       <module fileurl="file://$PROJECT_DIR$/patika-java-102/patika-java-102.iml" filepath="$PROJECT_DIR$/patika-java-102/patika-java-102.iml" />

@@ -1,5 +1,7 @@
-package com.allianz.erp.util.dbutil;
+package com.allianz.example.util.dbutil;
 
+
+import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -7,8 +9,6 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.*;
-import java.sql.Types;
 import java.util.Date;
 import java.util.UUID;
 
@@ -22,9 +22,10 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @JdbcTypeCode(Types.VARCHAR)
+    @JdbcTypeCode(java.sql.Types.VARCHAR)
     private UUID uuid;
 
     @CreatedDate
@@ -33,19 +34,11 @@ public class BaseEntity {
     @LastModifiedDate
     private Date updatedDate;
 
-    @PrePersist //kaydetmeden once yapilacak islemler anotasyonu
+
+    @PrePersist
     protected void onCreate() {
         setUuid(UUID.randomUUID());
     }
 
+
 }
-
-
-/*
-@Component
-public class AddressMapper extends BaseMapper<AddressDTO, AddressEntity, AddressRequestDTO> {
-    @PostConstruct
-    public void init(){
-        this.init(AddressEntity.class, AddressDTO.class);
-    }
-}*/

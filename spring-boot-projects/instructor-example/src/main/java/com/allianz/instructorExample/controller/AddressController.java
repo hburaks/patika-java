@@ -18,7 +18,6 @@ public class AddressController {
     @Autowired
     AddressService addressService;
 
-
     @GetMapping("dto")
     public ResponseEntity<List<AddressDTO>> getDTOs() {
         List<AddressDTO> addressDTOList = addressService.getDTOs();
