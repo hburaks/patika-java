@@ -80,23 +80,33 @@ public class OrderService extends BaseService<OrderEntity> {
         return false;
     }
 
+
     @Transactional
     public OrderEntity approveOrdersStatusIfPossible(OrderEntity customerOrder) throws Exception {
-        List<OrderItemEntity> updatedOrders = customerOrder.getOrderItemEntityList();
-        for (OrderItemEntity orderItem : updatedOrders) {
-            ProductEntity stockUpdatedProduct = productService.getProductById(orderItem.getProduct().getId());
-            if (orderItem.getQuantity() <= stockUpdatedProduct.getQuantity()) {
-                orderItem.setOrderStatus(OrderStatusEnum.APPROVED);
-                productService.updateProductStock(
-                        stockUpdatedProduct.getQuantity() - orderItem.getQuantity(),
-                        stockUpdatedProduct
-                );
-                orderItemRepository.save(orderItem);
-            } else {
-                orderItem.setOrderStatus(OrderStatusEnum.CANCELED);
+        List<OrderItemEntity> updatedOrders = new ArrayList<>();
+
+        for (OrderItemEntity orderItem : customerOrder.getOrderItemEntityList()) {
+            Optional<ProductEntity> stockUpdatedProductOptional = productService.findById(orderItem.getProduct().getId());
+
+            if (stockUpdatedProductOptional.isPresent()) {
+                ProductEntity stockUpdatedProduct = stockUpdatedProductOptional.get();
+
+                if (orderItem.getQuantity() <= stockUpdatedProduct.getQuantity()) {
+                    orderItem.setOrderStatus(OrderStatusEnum.APPROVED);
+                    int newStockQuantity = stockUpdatedProduct.getQuantity() - orderItem.getQuantity();
+                    stockUpdatedProduct.setQuantity(newStockQuantity);
+                    productService.updateProductStock(newStockQuantity, stockUpdatedProduct);
+                    orderItemRepository.save(orderItem);
+                } else {
+                    orderItem.setOrderStatus(OrderStatusEnum.CANCELED);
+                }
+
+                updatedOrders.add(orderItem);
             }
         }
+
         customerOrder.setOrderItemEntityList(updatedOrders);
         return customerOrder;
     }
+
 }

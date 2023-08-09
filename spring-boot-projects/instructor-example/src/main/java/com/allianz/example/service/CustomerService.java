@@ -130,18 +130,14 @@ public class CustomerService extends BaseService<CustomerEntity> {
             CustomerEntity customer = customerOptional.get();
 
             if (customer.getOrderList() != null) {
-                // Find the specific customer order with the given customerOrderId
                 OrderEntity customerOrder = findCustomerOrderFromCustomerWithId(customer, customerOrderId);
 
                 if (customerOrder != null) {
                     orderService.approveOrdersStatusIfPossible(customerOrder);
 
-                    // Create a new bill with the approved order items
                     BillEntity bill = billService.createBillWithApprovedOrderItems(customerOrder);
 
-                    // Check if the customer already has a billEntityList
                     if (customer.getBillEntityList() == null) {
-                        // If not, create a new ArrayList to store the bill
                         customer.setBillEntityList(new ArrayList<>());
                     }
 

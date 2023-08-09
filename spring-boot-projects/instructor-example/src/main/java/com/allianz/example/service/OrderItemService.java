@@ -26,8 +26,19 @@ public class OrderItemService extends BaseService<OrderItemEntity> {
     OrderItemRepository orderItemRepository;
 
     public OrderItemEntity createOrderItem(Long productId, Long customerId, int quantity) throws Exception {
-        ProductEntity product = productService.getProductById(productId);
-        Optional<OrderEntity> customerOrder = orderService.findById(customerId);
+        Optional<ProductEntity> productOptional = productService.findById(productId);
+        Optional<OrderEntity> customerOrderOptional = orderService.findById(customerId);
+
+        if (!productOptional.isPresent()) {
+            throw new Exception("Product with ID " + productId + " not found.");
+        }
+
+        if (!customerOrderOptional.isPresent()) {
+            throw new Exception("Customer order with ID " + customerId + " not found.");
+        }
+
+        ProductEntity product = productOptional.get();
+        OrderEntity customerOrder = customerOrderOptional.get();
 
         if (product.getQuantity() < quantity) {
             throw new IllegalArgumentException("Insufficient stock for the product: " + product.getName());
@@ -41,6 +52,9 @@ public class OrderItemService extends BaseService<OrderItemEntity> {
         productService.updateProductStock(quantity, product);
         return orderItem;
     }
+
+
+
 
     public List<OrderItemEntity> getOrderItemsApproved(List<OrderItemEntity> orderItemList) {
         List<OrderItemEntity> orderItemsApproved = null;
