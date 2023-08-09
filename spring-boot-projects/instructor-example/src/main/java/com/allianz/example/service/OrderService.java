@@ -1,23 +1,26 @@
 package com.allianz.example.service;
 
-import com.allianz.erp.entity.Customer;
-import com.allianz.erp.entity.CustomerOrder;
-import com.allianz.erp.entity.OrderItem;
-import com.allianz.erp.entity.Product;
-import com.allianz.erp.model.OrderItemStatusTypeEnum;
-import com.allianz.erp.repository.CustomerOrderRepository;
-import com.allianz.erp.repository.OrderItemRepository;
+
+import com.allianz.example.database.entity.CustomerEntity;
+import com.allianz.example.database.entity.OrderEntity;
+import com.allianz.example.database.entity.OrderItemEntity;
+import com.allianz.example.database.entity.ProductEntity;
+import com.allianz.example.database.repository.OrderItemRepository;
+import com.allianz.example.database.repository.OrderRepository;
+import com.allianz.example.model.enums.OrderStatusEnum;
+import com.allianz.example.util.BaseService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class OrderService {
+public class OrderService extends BaseService<OrderEntity> {
     @Autowired
-    CustomerOrderRepository customerOrderRepository;
+    OrderRepository customerOrderRepository;
 
     @Autowired
     ProductService productService;
@@ -25,44 +28,51 @@ public class OrderService {
     OrderItemRepository orderItemRepository;
 
 
-    public CustomerOrder getCustomerOrderById(Long id) {
-        return customerOrderRepository.getReferenceById(id);
-    }
 
 
-    public CustomerOrder addOrderItemToCustomerOrder(OrderItem orderItem, CustomerOrder customerOrder) {
-        if (customerOrder.getOrderItemList() == null) {
-            customerOrder.setOrderItemList(new ArrayList<OrderItem>());
+    public OrderEntity addOrderItemToCustomerOrder(OrderItemEntity orderItem, OrderEntity customerOrder) {
+        if (customerOrder.getOrderItemEntityList() == null) {
+            customerOrder.setOrderItemEntityList(new ArrayList<OrderItemEntity>());
         }
-        customerOrder.getOrderItemList().add(orderItem);
+        customerOrder.getOrderItemEntityList().add(orderItem);
         return customerOrder;
     }
 
-    public CustomerOrder addOrderItemToCustomerOrderWithId(OrderItem orderItem, Long customerOrderId) {
-        CustomerOrder customerOrder = getCustomerOrderById(customerOrderId);
-        addOrderItemToCustomerOrder(orderItem, customerOrder);
-        return customerOrder;
+    public OrderEntity addOrderItemToCustomerOrderWithId(OrderItemEntity orderItem, Long customerOrderId) throws Exception {
+        Optional<OrderEntity> customerOrderOptional = findById(customerOrderId);
+
+        if (customerOrderOptional.isPresent()) {
+            OrderEntity customerOrder = customerOrderOptional.get();
+            addOrderItemToCustomerOrder(orderItem, customerOrder);
+            return customerOrder;
+        } else {
+            throw new Exception("Customer order with ID " + customerOrderId + " not found.");
+        }
     }
 
-    public boolean removeOrderItemFromCustomerOrderWithId(Long orderItemId, Long customerOrderId) {
-        CustomerOrder customerOrder = getCustomerOrderById(customerOrderId);
-        for (int i = 0; i < customerOrder.getOrderItemList().size(); i++) {
-            if (customerOrder.getOrderItemList().get(i).getId().equals(orderItemId)) {
-                customerOrder.getOrderItemList().remove(i);
+    public boolean removeOrderItemFromOrderEntityWithId(Long orderItemId, Long customerOrderId) throws Exception {
+        Optional<OrderEntity> customerOrderOptional = findById(customerOrderId);
+
+        if (customerOrderOptional.isPresent()) {
+            OrderEntity customerOrder = customerOrderOptional.get();
+            for (int i = 0; i < customerOrder.getOrderItemEntityList().size(); i++) {
+            if (customerOrder.getOrderItemEntityList().get(i).getId().equals(orderItemId)) {
+                customerOrder.getOrderItemEntityList().remove(i);
                 return true;
             }
-        }
+        }}
         return false;
     }
 
-    public CustomerOrder createCustomerOrder(Customer customer) {
-        CustomerOrder customerOrder = new CustomerOrder();
+
+    public OrderEntity createOrderEntity(CustomerEntity customer) {
+        OrderEntity customerOrder = new OrderEntity();
         customerOrder.setCustomer(customer);
         return customerOrder;
     }
 
-    public boolean removeCustomerOrderWithId(Long customerOrderId) {
-        CustomerOrder customerOrder = customerOrderRepository.getReferenceById(customerOrderId);
+    public boolean removeOrderEntityWithId(Long customerOrderId) {
+        OrderEntity customerOrder = customerOrderRepository.getReferenceById(customerOrderId);
         if (customerOrder != null) {
             customerOrderRepository.delete(customerOrder);
             return true;
@@ -71,22 +81,22 @@ public class OrderService {
     }
 
     @Transactional
-    public CustomerOrder approveOrdersStatusIfPossible(CustomerOrder customerOrder) {
-        List<OrderItem> updatedOrders = customerOrder.getOrderItemList();
-        for (OrderItem orderItem : updatedOrders) {
-            Product stockUpdatedProduct = productService.getProductById(orderItem.getProduct().getId());
-            if (orderItem.getQuantity() <= stockUpdatedProduct.getStock()) {
-                orderItem.setOrderItemStatusTypeEnum(OrderItemStatusTypeEnum.APPROVED);
+    public OrderEntity approveOrdersStatusIfPossible(OrderEntity customerOrder) throws Exception {
+        List<OrderItemEntity> updatedOrders = customerOrder.getOrderItemEntityList();
+        for (OrderItemEntity orderItem : updatedOrders) {
+            ProductEntity stockUpdatedProduct = productService.getProductById(orderItem.getProduct().getId());
+            if (orderItem.getQuantity() <= stockUpdatedProduct.getQuantity()) {
+                orderItem.setOrderStatus(OrderStatusEnum.APPROVED);
                 productService.updateProductStock(
-                        stockUpdatedProduct.getStock() - orderItem.getQuantity(),
+                        stockUpdatedProduct.getQuantity() - orderItem.getQuantity(),
                         stockUpdatedProduct
                 );
                 orderItemRepository.save(orderItem);
             } else {
-                orderItem.setOrderItemStatusTypeEnum(OrderItemStatusTypeEnum.CANCELLED);
+                orderItem.setOrderStatus(OrderStatusEnum.CANCELED);
             }
         }
-        customerOrder.setOrderItemList(updatedOrders);
+        customerOrder.setOrderItemEntityList(updatedOrders);
         return customerOrder;
     }
 }

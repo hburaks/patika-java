@@ -1,6 +1,9 @@
 package com.allianz.example.util;
 
+import com.allianz.example.database.entity.AddressEntity;
+import com.allianz.example.model.AddressDTO;
 import com.allianz.example.util.dbutil.BaseEntity;
+import org.springframework.beans.BeanUtils;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -17,11 +17,10 @@ public class OrderEntity extends BaseEntity {
     @ManyToOne
     private CustomerEntity customer;
 
-    @Enumerated(EnumType.STRING)
-    private OrderStatusEnum orderStatus;
+
 
     @OneToMany
-    private List<OrderItemEntity> orderItemList;
+    private List<OrderItemEntity> orderItemEntityList;
 
     @Column
     private BigDecimal totalSellPrice;

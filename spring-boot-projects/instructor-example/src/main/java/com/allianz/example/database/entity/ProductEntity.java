@@ -24,6 +24,10 @@ public class ProductEntity extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private ColorEnum color;
 
+
+    @Column
+    private boolean isProductAvailable;
+
     @Column
     private BigDecimal sellPrice;
 
@@ -32,6 +36,8 @@ public class ProductEntity extends BaseEntity {
 
     @Column
     private Integer quantity;
+
+
 
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "productList")

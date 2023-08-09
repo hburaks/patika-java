@@ -1,9 +1,10 @@
 package com.allianz.example.service;
 
-import com.allianz.erp.entity.Bill;
-import com.allianz.erp.entity.Customer;
-import com.allianz.erp.entity.CustomerOrder;
-import com.allianz.erp.repository.CustomerRepository;
+import com.allianz.example.database.entity.BillEntity;
+import com.allianz.example.database.entity.CustomerEntity;
+import com.allianz.example.database.entity.OrderEntity;
+import com.allianz.example.database.repository.CustomerRepository;
+import com.allianz.example.util.BaseService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CustomerService {
+public class CustomerService extends BaseService<CustomerEntity> {
     @Autowired
     CustomerRepository customerRepository;
 
@@ -23,44 +24,40 @@ public class CustomerService {
     @Autowired
     BillService billService;
 
-    public List<Customer> getAllCustomers() {
+    public List<CustomerEntity> getAllCustomers() {
         return customerRepository.findAll();
     }
 
-    public Customer createCustomer(String name) {
-        Customer customer = new Customer();
-        customer.setName(name);
+    public CustomerEntity createCustomer(String name) {
+        CustomerEntity customer = new CustomerEntity();
+        customer.setCompanyName(name);
         customerRepository.save(customer);
         return customer;
     }
 
 
-    public Customer getCustomerById(Long id) {
-        return customerRepository.getReferenceById(id);
-    }
-
-    public Customer updateCustomerName(String name, Customer customer) {
-        customer.setName(name);
+    public CustomerEntity updateCustomerName(String name, CustomerEntity customer) {
+        customer.setCompanyName(name);
         customerRepository.save(customer);
         return customer;
     }
 
-    public Customer addCustomerOrderToCustomer(CustomerOrder customerOrder, Customer customer) {
-        if (customer.getCustomerOrderList() == null) {
-            customer.setCustomerOrderList(new ArrayList<CustomerOrder>() {
+    public CustomerEntity addCustomerOrderToCustomer(OrderEntity customerOrder, CustomerEntity customer) {
+        if (customer.getOrderList() == null) {
+            customer.setOrderList(new ArrayList<OrderEntity>() {
             });
         }
-        customer.getCustomerOrderList().add(customerOrder);
+        customer.getOrderList().add(customerOrder);
         customerRepository.save(customer);
         return customer;
     }
 
     @Transactional
-    public Customer subtractCustomerOrderFromCustomer(CustomerOrder customerOrder, Customer customer) {
-        if (customer.getCustomerOrderList() != null) {
-            for (int i = 0; i < customer.getCustomerOrderList().size(); i++) {
-                if (customer.getCustomerOrderList().get(i).getId().equals(customerOrder.getId())) {
-                    customer.getCustomerOrderList().remove(i);
+    public CustomerEntity subtractCustomerOrderFromCustomer(OrderEntity customerOrder, CustomerEntity customer) {
+        if (customer.getOrderList() != null) {
+            for (int i = 0; i < customer.getOrderList().size(); i++) {
+                if (customer.getOrderList().get(i).getId().equals(customerOrder.getId())) {
+                    customer.getOrderList().remove(i);
                     break;
                 } else {
                     throw new IllegalArgumentException("The customer order does not exist for this customer!");
@@ -73,8 +70,8 @@ public class CustomerService {
     }
 
 
-    public Bill findBillFromCustomerWithId(Customer customer, Long billId) {
-        Optional<Bill> billOptional = customer.getBillList().stream()
+    public BillEntity findBillFromCustomerWithId(CustomerEntity customer, Long billId) {
+        Optional<BillEntity> billOptional = customer.getBillEntityList().stream()
                 .filter(bill -> bill.getId().equals(billId))
                 .findFirst();
 
@@ -84,8 +81,8 @@ public class CustomerService {
         return null;
     }
 
-    public CustomerOrder findCustomerOrderFromCustomerWithId(Customer customer, Long customerId) {
-        Optional<CustomerOrder> customerOrderOptional = customer.getCustomerOrderList().stream()
+    public OrderEntity findCustomerOrderFromCustomerWithId(CustomerEntity customer, Long customerId) {
+        Optional<OrderEntity> customerOrderOptional = customer.getOrderList().stream()
                 .filter(customerOrder -> customerOrder.getId().equals(customerId))
                 .findFirst();
 
@@ -96,23 +93,23 @@ public class CustomerService {
         }
     }
 
-    public Customer addBillToCustomer(Bill bill, Customer customer) {
-        if (customer.getCustomerOrderList() == null) {
-            customer.setBillList(new ArrayList<Bill>() {
+    public CustomerEntity addBillToCustomer(BillEntity bill, CustomerEntity customer) {
+        if (customer.getOrderList() == null) {
+            customer.setBillEntityList(new ArrayList<BillEntity>() {
             });
         }
-        customer.getBillList().add(bill);
+        customer.getBillEntityList().add(bill);
 
         customerRepository.save(customer);
         return customer;
     }
 
     @Transactional
-    public Customer subtractBillFromCustomer(Bill bill, Customer customer) {
-        if (customer.getCustomerOrderList() != null) {
-            for (int i = 0; i < customer.getBillList().size(); i++) {
-                if (customer.getBillList().get(i).getId().equals(bill.getId())) {
-                    customer.getBillList().remove(i);
+    public CustomerEntity subtractBillFromCustomer(BillEntity bill, CustomerEntity customer) {
+        if (customer.getOrderList() != null) {
+            for (int i = 0; i < customer.getBillEntityList().size(); i++) {
+                if (customer.getBillEntityList().get(i).getId().equals(bill.getId())) {
+                    customer.getBillEntityList().remove(i);
                     break;
                 } else {
                     throw new IllegalArgumentException("Given bill does not exist for this customer!");
@@ -124,21 +121,45 @@ public class CustomerService {
         return customer;
     }
 
-    public Customer turnCustomerOrderToBill(Long customerOrderId, Long customerId) {
-        Customer customer = getCustomerById(customerId);
-        if (customer.getCustomerOrderList() != null) {
-            CustomerOrder customerOrder = findCustomerOrderFromCustomerWithId(customer, customerOrderId);
-            orderService.approveOrdersStatusIfPossible(customerOrder);
-            Bill bill = billService.createBillWithApprovedOrderItems(customerOrder);
-            if (customer.getBillList() == null) {
-                customer.setBillList(new ArrayList<Bill>());
+
+
+    public CustomerEntity turnCustomerOrderToBill(Long customerOrderId, Long customerId) throws Exception {
+        Optional<CustomerEntity> customerOptional = findById(customerId);
+
+        if (customerOptional.isPresent()) {
+            CustomerEntity customer = customerOptional.get();
+
+            if (customer.getOrderList() != null) {
+                // Find the specific customer order with the given customerOrderId
+                OrderEntity customerOrder = findCustomerOrderFromCustomerWithId(customer, customerOrderId);
+
+                if (customerOrder != null) {
+                    orderService.approveOrdersStatusIfPossible(customerOrder);
+
+                    // Create a new bill with the approved order items
+                    BillEntity bill = billService.createBillWithApprovedOrderItems(customerOrder);
+
+                    // Check if the customer already has a billEntityList
+                    if (customer.getBillEntityList() == null) {
+                        // If not, create a new ArrayList to store the bill
+                        customer.setBillEntityList(new ArrayList<>());
+                    }
+
+                    customer.getBillEntityList().add(bill);
+
+                    return save(customer);
+                } else {
+                    throw new IllegalArgumentException("Customer order with ID " + customerOrderId + " not found!");
+                }
+            } else {
+                throw new IllegalArgumentException("There is no customer order in this customer!");
             }
-            customer.getBillList().add(bill);
         } else {
-            throw new IllegalArgumentException("There is no customer order in this customer!");
+            throw new IllegalArgumentException("Customer with ID " + customerId + " not found!");
         }
-        return customer;
     }
 
 
 }
+
+

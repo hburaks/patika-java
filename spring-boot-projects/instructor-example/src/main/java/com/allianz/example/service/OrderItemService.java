@@ -1,20 +1,21 @@
 package com.allianz.example.service;
 
-import com.allianz.erp.entity.CustomerOrder;
-import com.allianz.erp.entity.OrderItem;
-import com.allianz.erp.entity.Product;
-import com.allianz.erp.model.OrderItemStatusTypeEnum;
-import com.allianz.erp.repository.OrderItemRepository;
-import com.allianz.erp.util.config.ConfigService;
+import com.allianz.example.database.entity.OrderEntity;
+import com.allianz.example.database.entity.OrderItemEntity;
+import com.allianz.example.database.entity.ProductEntity;
+import com.allianz.example.database.repository.OrderItemRepository;
+import com.allianz.example.model.enums.OrderStatusEnum;
+import com.allianz.example.util.BaseService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class OrderItemService {
+public class OrderItemService extends BaseService<OrderItemEntity> {
     @Autowired
     ProductService productService;
 
@@ -22,71 +23,66 @@ public class OrderItemService {
     OrderService orderService;
 
     @Autowired
-    ConfigService configService;
-    @Autowired
     OrderItemRepository orderItemRepository;
 
-    public OrderItem createOrderItem(Long productId, Long customerId, int quantity) {
-        Product product = productService.getProductById(productId);
-        CustomerOrder customerOrder = orderService.getCustomerOrderById(customerId);
+    public OrderItemEntity createOrderItem(Long productId, Long customerId, int quantity) throws Exception {
+        ProductEntity product = productService.getProductById(productId);
+        Optional<OrderEntity> customerOrder = orderService.findById(customerId);
 
-        if (product.getStock() < quantity) {
+        if (product.getQuantity() < quantity) {
             throw new IllegalArgumentException("Insufficient stock for the product: " + product.getName());
         }
 
-        OrderItem orderItem = new OrderItem();
-        orderItem.setName(product.getName());
+        OrderItemEntity orderItem = new OrderItemEntity();
         orderItem.setProduct(product);
-        orderItem.setCustomerOrder(customerOrder);
-        orderItem.setOrderItemStatusTypeEnum(OrderItemStatusTypeEnum.PENDING);
+        orderItem.setOrderStatus(OrderStatusEnum.WAITING);
         orderItem.setQuantity(quantity);
-        orderItem.setPrice(product.getPrice());
-        orderItem.setTaxAmount(configService.calculateTaxAmount(product.getPrice()));
+        orderItem.setSellPrice(product.getSellPrice());
         productService.updateProductStock(quantity, product);
         return orderItem;
     }
 
-    public List<OrderItem> getOrderItemsApproved(List<OrderItem> orderItemList) {
-        List<OrderItem> orderItemsApproved = null;
-        for (OrderItem orderItem : orderItemList) {
-            if (orderItem.getOrderItemStatusTypeEnum().equals(OrderItemStatusTypeEnum.APPROVED)) {
+    public List<OrderItemEntity> getOrderItemsApproved(List<OrderItemEntity> orderItemList) {
+        List<OrderItemEntity> orderItemsApproved = null;
+        for (OrderItemEntity orderItem : orderItemList) {
+            if (orderItem.getOrderStatus().equals(OrderStatusEnum.APPROVED)) {
                 orderItemsApproved.add(orderItem);
             }
         }
         return orderItemsApproved;
     }
 
-    public BigDecimal getTotalPrice(List<OrderItem> orderItemList) {
+    public BigDecimal getTotalPrice(List<OrderItemEntity> orderItemList) {
         BigDecimal totalPrice = null;
-        for (OrderItem orderItem : orderItemList) {
-            totalPrice.add(orderItem.getPrice());
+        for (OrderItemEntity orderItem : orderItemList) {
+            totalPrice.add(orderItem.getSellPrice());
         }
         return totalPrice;
     }
 
-    public BigDecimal getTotalTax(List<OrderItem> orderItemList) {
+    public BigDecimal getTotalTax(List<OrderItemEntity> orderItemList) {
         BigDecimal totalTax = null;
-        for (OrderItem orderItem : orderItemList) {
-            totalTax.add(orderItem.getTaxAmount());
+        for (OrderItemEntity orderItem : orderItemList) {
+            totalTax.add(orderItem.getProduct().getBuyPrice().subtract(orderItem.getProduct().getBuyPrice()));
         }
         return totalTax;
     }
 
-    public OrderItem getOrderItemById(Long id) {
+    public OrderItemEntity getOrderItemById(Long id) {
         return orderItemRepository.getReferenceById(id);
     }
 
     @Transactional
-    public OrderItem updateOrderItemQuantity(Long id, int quantity) {
-        OrderItem orderItem = getOrderItemById(id);
+    public OrderItemEntity updateOrderItemQuantity(Long id, int quantity) {
+        OrderItemEntity orderItem = getOrderItemById(id);
         orderItem.setQuantity(quantity);
         return orderItem;
     }
 
     @Transactional
-    public OrderItem updateOrderItemStatus(Long id, OrderItemStatusTypeEnum orderItemStatusTypeEnum) {
-        OrderItem orderItem = getOrderItemById(id);
-        orderItem.setOrderItemStatusTypeEnum(orderItemStatusTypeEnum);
+    public OrderItemEntity updateOrderItemStatus(Long id, OrderStatusEnum orderItemStatusTypeEnum) {
+        OrderItemEntity orderItem = getOrderItemById(id);
+        orderItem.setOrderStatus(orderItemStatusTypeEnum);
         return orderItem;
     }
 

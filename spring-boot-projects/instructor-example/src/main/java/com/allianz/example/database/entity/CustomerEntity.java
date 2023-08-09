@@ -28,8 +28,12 @@ public class CustomerEntity extends BaseEntity {
 
 
 
+
+
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "customer")
     private List<OrderEntity> orderList;
 
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "customer")
+    private List<BillEntity> billEntityList;
 
 }

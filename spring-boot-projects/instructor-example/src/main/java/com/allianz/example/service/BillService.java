@@ -1,7 +1,8 @@
 package com.allianz.example.service;
 
-import com.allianz.erp.entity.CustomerOrder;
-import com.allianz.erp.entity.OrderItem;
+import com.allianz.example.database.entity.BillEntity;
+import com.allianz.example.database.entity.OrderEntity;
+import com.allianz.example.database.entity.OrderItemEntity;
 import com.allianz.example.database.repository.BillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,18 +20,17 @@ public class BillService {
     @Autowired
     OrderItemService orderItemService;
 
-    public Bill createBillWithApprovedOrderItems(CustomerOrder customerOrder) {
-        List<OrderItem> orderItemsApproved = orderItemService.getOrderItemsApproved(customerOrder.getOrderItemList());
-        Bill bill = new Bill();
+    public BillEntity createBillWithApprovedOrderItems(OrderEntity customerOrder) {
+        List<OrderItemEntity> orderItemsApproved = orderItemService.getOrderItemsApproved(customerOrder.getOrderItemEntityList());
 
-        bill.setCustomer(customerOrder.getCustomer());
-        bill.setOrderItemList(orderItemsApproved);
-        bill.setTotalPrice(orderItemService.getTotalPrice(orderItemsApproved));
-        bill.setTotalTaxAmount(orderItemService.getTotalTax(orderItemsApproved));
+
+        BillEntity bill = new BillEntity();
+
+//        bill.setCustomer(customerOrder.getCustomer());
+        bill.setOrderItemEntityList(orderItemsApproved);
+        bill.setTotalSellPrice(orderItemService.getTotalPrice(orderItemsApproved));
+        bill.setTaxAmount(orderItemService.getTotalTax(orderItemsApproved));
         return bill;
     }
 
-    public Bill getBillById(Long billId) {
-       return billRepository.getReferenceById(billId);
-    }
 }

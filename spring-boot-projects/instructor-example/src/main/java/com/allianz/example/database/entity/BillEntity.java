@@ -1,14 +1,12 @@
 package com.allianz.example.database.entity;
 
 import com.allianz.example.util.dbutil.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
@@ -35,6 +33,9 @@ public class BillEntity extends BaseEntity {
 
     @OneToOne
     private OrderEntity order;
+
+    @OneToMany(mappedBy = "billEntity", fetch = FetchType.LAZY)
+    private List<OrderItemEntity> orderItemEntityList;
 
 
 
