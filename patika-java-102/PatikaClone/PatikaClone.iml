@@ -9,4 +9,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="postgresql-42.6.02" level="project" />
   </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="53a583a8-7ea5-47b8-8a11-7b6676d672a1" />
+  </component>
 </module>

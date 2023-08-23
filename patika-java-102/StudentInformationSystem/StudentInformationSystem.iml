@@ -4,4 +4,7 @@
     <exclude-output />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="0485c06c-03dd-4d07-837d-2d7692d78848" />
+  </component>
 </module>

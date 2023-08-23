@@ -6,8 +6,6 @@ import com.allianz.genericerpcrud.entity.AddressEntity;
 import com.allianz.genericerpcrud.mapper.generic.BaseMapper;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 public class AddressMapper extends BaseMapper<AddressDTO, AddressEntity, AddressRequestDTO> {
     @Override
@@ -19,7 +17,6 @@ public class AddressMapper extends BaseMapper<AddressDTO, AddressEntity, Address
         addressDTO.setAddress(entity.getAddress());
         addressDTO.setTitle(entity.getTitle());
         addressDTO.setUpdatedDate(entity.getUpdatedDate());
-
 
         return addressDTO;
     }
@@ -41,13 +38,5 @@ public class AddressMapper extends BaseMapper<AddressDTO, AddressEntity, Address
         return null;
     }
 
-    @Override
-    public List<AddressEntity> dtoListTOEntityList(List<AddressDTO> addressDTOS) {
-        return null;
-    }
 
-    @Override
-    public List<AddressDTO> entityListToDTOList(List<AddressEntity> addressEntities) {
-        return super.entityListToDTOList(addressEntities);
-    }
 }
